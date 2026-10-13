@@ -1,0 +1,7 @@
+// Clipboard History
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+
+// Env Variables
+environment {
+	QT_QPA_PLATFORMTHEME "qt6ct"
+}

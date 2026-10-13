@@ -1,7 +1,9 @@
 {
   imports = [
-    ./git.nix
-    ./niri.nix
-    ./shell.nix
+    ./xdg.nix
+    ./apps
+    ./niri
   ];
+
+  home.stateVersion = "26.05";
 }

@@ -6,13 +6,17 @@
     nixd
     nil
 
-    # Core editors
+    # Better CLI editor
     fresh-editor
-    zed-editor
   ];
 
-  # Essensial
-  programs.git.enable = true;
+  programs = {
+    git.enable = true;
+  };
+
+  # Replace sudo
+  security.sudo.enable = false;
+  security.sudo-rs.enable = true;
 
   # Set nushell as default
   programs.nushell.enable = true;

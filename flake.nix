@@ -21,9 +21,9 @@
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.extraSpecialArgs = { inherit inputs; };
-              imports = [
-                ./home-manager
-              ];
+              home-manager.users.rikiub = {
+                imports = [ ./home-manager ];
+              };
             }
           ];
         };

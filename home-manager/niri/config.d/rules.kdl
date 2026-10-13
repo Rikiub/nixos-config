@@ -1,0 +1,28 @@
+// Window rules let you adjust behavior for individual windows.
+// Find more information on the wiki:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
+
+// Enable rounded corners for all windows.
+window-rule {
+	geometry-corner-radius 12
+	clip-to-geometry true
+}
+
+// Open as floating by default.
+window-rule {
+	match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+	match app-id="qt-sudo"
+	
+	open-floating true
+}
+
+// block out password managers from screen capture.
+window-rule {
+	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+	match app-id=r#"^org\.gnome\.World\.Secrets$"#
+	
+	block-out-from "screen-capture"
+
+	// Use this instead if you want them visible on third-party screenshot tools.
+	// block-out-from "screencast"
+}

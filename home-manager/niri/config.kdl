@@ -1,0 +1,19 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+// Config.d
+include "config.d/animations.kdl"
+include "config.d/layout.kdl"
+include "config.d/rules.kdl"
+include "config.d/keybinds.kdl"
+include "config.d/misc.kdl"
+include "config.d/autostart.kdl"
+include "config.d/output.kdl"
+
+// Modules
+include "modules/noctalia.kdl"
+
+// Others
+// include "noctalia.kdl"

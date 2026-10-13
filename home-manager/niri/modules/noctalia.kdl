@@ -1,0 +1,56 @@
+// Autostart
+spawn-at-startup "noctalia"
+
+// Wallpaper
+layer-rule {
+	match namespace="^noctalia-wallpaper"
+	place-within-backdrop true
+}
+
+layout {
+	background-color "transparent"
+}
+
+// Keybinds
+binds {
+	// Core
+	Mod+Space \
+		hotkey-overlay-title="Toggle Launcher" \
+		{ spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+	
+	Mod+E \
+		hotkey-overlay-title="Toggle Control Center" \
+		{ spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+	
+	Mod+Shift+M \
+		hotkey-overlay-title="Toggle Theme Mode" \
+		{ spawn "noctalia" "msg" "theme-mode-toggle"; }
+	
+	Mod+Comma \
+		hotkey-overlay-title="Toggle Noctalia Settings" \
+		{ spawn "noctalia" "msg" "settings-toggle"; }
+	
+	Print \
+		hotkey-overlay-title="Take Screenshot Region" \
+		{ spawn "noctalia" "msg" "screenshot-region"; }
+	
+	// Audio & Brightness
+	XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
+	XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
+	XF86AudioMute { spawn-sh "noctalia msg volume-mute"; }
+	XF86MonBrightnessUp { spawn-sh "noctalia msg brightness-up"; }
+	XF86MonBrightnessDown { spawn-sh "noctalia msg brightness-down"; }
+}
+
+// Rules
+window-rule {
+	match app-id="dev.noctalia.Noctalia"
+	open-floating true
+	default-column-width { fixed 1080; }
+	default-window-height { fixed 750; }
+}
+
+// Misc
+debug {
+	honor-xdg-activation-with-invalid-serial
+}

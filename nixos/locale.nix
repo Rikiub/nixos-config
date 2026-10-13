@@ -1,5 +1,7 @@
 let
   locale = "es_VE.UTF-8";
+  keymapLayout = "us";
+  keymapVariant = "altgr-intl";
 in
 {
   # Set your time zone.
@@ -19,4 +21,13 @@ in
     LC_TELEPHONE = locale;
     LC_TIME = locale;
   };
+
+  # Configure keymap in X11
+  services.xserver.xkb = {
+    layout = keymapLayout;
+    variant = keymapVariant;
+  };
+
+  # Configure console keymap
+  console.keyMap = keymapVariant;
 }
