@@ -1,7 +1,9 @@
+{ config, ... }:
+
 {
-  users.users."rikiub" = {
+  users.users.${config.user.name} = {
     isNormalUser = true;
-    description = "Rikiub";
+    description = config.user.label;
     extraGroups = [
       "networkmanager"
       "wheel"

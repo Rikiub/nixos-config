@@ -1,5 +1,8 @@
+{ hostname, ... }:
+
 {
   imports = [
+    ./options.nix
     ./boot.nix
     ./sound.nix
     ./locale.nix
@@ -11,8 +14,10 @@
     ./users.nix
     ./services.nix
     ./hardware.nix
+    ./home-manager.nix
   ];
 
   system.stateVersion = "26.05";
   system.nixos.label = "NixOS";
+  networking.hostName = hostname;
 }

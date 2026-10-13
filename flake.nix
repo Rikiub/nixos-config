@@ -12,10 +12,15 @@
   };
 
   outputs =
-    inputs@{ nixpkgs, home-manager, ... }:
+    inputs@{
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     let
       mkHost =
         hostname:
+
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           specialArgs = { inherit inputs hostname; };
@@ -29,17 +34,6 @@
 
             # home-manager
             home-manager.nixosModules.home-manager
-            {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs hostname; };
-              home-manager.users.rikiub = {
-                imports = [
-                  ./modules/home
-                  ./hosts/${hostname}/home
-                ];
-              };
-            }
           ];
         };
     in
