@@ -25,14 +25,10 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs hostname; };
           modules = [
-            # shared system config
             ./modules/system
-
-            # host-specific (hardware + hostname)
-            ./hosts/${hostname}/hardware-configuration.nix
             ./hosts/${hostname}/system
+            ./hosts/${hostname}/hardware-configuration.nix
 
-            # home-manager
             home-manager.nixosModules.home-manager
           ];
         };
