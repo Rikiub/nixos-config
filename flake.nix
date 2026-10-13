@@ -9,24 +9,39 @@
 
   outputs =
     inputs@{ nixpkgs, home-manager, ... }:
-    {
-      nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+    let
+      mkHost =
+        hostname:
+        nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
+          specialArgs = { inherit inputs hostname; };
           modules = [
-            ./hardware-configuration.nix
+            # shared system config
             ./nixos
+
+            # host-specific (hardware + hostname)
+            ./hosts/${hostname}/hardware-configuration.nix
+            ./hosts/${hostname}/nixos
+
+            # home-manager
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.extraSpecialArgs = { inherit inputs hostname; };
               home-manager.users.rikiub = {
-                imports = [ ./home-manager ];
+                imports = [
+                  ./home
+                  ./hosts/${hostname}/home
+                ];
               };
             }
           ];
         };
+    in
+    {
+      nixosConfigurations = {
+        nixos = mkHost "nixos";
       };
     };
 }

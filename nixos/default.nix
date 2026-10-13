@@ -12,6 +12,5 @@
   ];
 
   system.stateVersion = "26.05";
-  system.nixos.label = "nixos";
-  networking.hostName = "nixos";
+  system.nixos.label = "NixOS";
 }
