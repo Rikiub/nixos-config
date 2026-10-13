@@ -1,6 +1,7 @@
 { pkgs, lib, ... }:
 
 {
+  # Essensials
   environment.systemPackages = with pkgs; [
     wl-clipboard
   ];

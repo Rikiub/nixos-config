@@ -16,4 +16,4 @@ include "config.d/output.kdl"
 include "modules/noctalia.kdl"
 
 // Others
-// include "noctalia.kdl"
+include "noctalia.kdl"
