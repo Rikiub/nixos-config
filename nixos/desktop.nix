@@ -1,7 +1,7 @@
 { lib, ... }:
 
 {
-  # Enable the KDE Plasma Desktop Environment.
+  # Display manager
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
