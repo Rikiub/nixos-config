@@ -1,17 +1,23 @@
-{ lib, ... }:
+{ pkgs, lib, ... }:
 
 {
+  environment.systemPackages = with pkgs; [
+    wl-clipboard
+  ];
+
+  # Autologin
+  services.displayManager.autoLogin = {
+    enable = true;
+    user = "rikiub";
+  };
+
   # Display manager
   services.displayManager.sddm = {
     enable = true;
     wayland.enable = true;
-    autoLogin = {
-      enable = true;
-      user = "rikiub";
-    };
   };
 
-  # Add niri session
+  # Desktop sessions
   programs.niri.enable = true;
 
   # Set default session
