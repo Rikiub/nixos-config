@@ -10,6 +10,7 @@
     ./network.nix
     ./users.nix
     ./services.nix
+    ./hardware.nix
   ];
 
   system.stateVersion = "26.05";

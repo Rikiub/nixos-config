@@ -21,11 +21,11 @@
           specialArgs = { inherit inputs hostname; };
           modules = [
             # shared system config
-            ./shared/nixos
+            ./modules/system
 
             # host-specific (hardware + hostname)
             ./hosts/${hostname}/hardware-configuration.nix
-            ./hosts/${hostname}/nixos
+            ./hosts/${hostname}/system
 
             # home-manager
             home-manager.nixosModules.home-manager
@@ -35,7 +35,7 @@
               home-manager.extraSpecialArgs = { inherit inputs hostname; };
               home-manager.users.rikiub = {
                 imports = [
-                  ./shared/home
+                  ./modules/home
                   ./hosts/${hostname}/home
                 ];
               };

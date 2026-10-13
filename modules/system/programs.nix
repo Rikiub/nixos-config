@@ -2,11 +2,11 @@
 
 {
   environment.systemPackages = with pkgs; [
-    # Nix LSP for editors
+    # Nix Tools
     nixd
-    nil
+    nixfmt
 
-    # Better CLI editor
+    # CLI editor
     fresh-editor
   ];
 
