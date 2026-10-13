@@ -4,6 +4,7 @@
     ./desktop-niri
 
     ./xdg.nix
+    ./syncthing.nix
 
     ./common.nix
     ./cli.nix

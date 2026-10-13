@@ -7,6 +7,7 @@ in
   # Essensials
   environment.systemPackages = with pkgs; [
     wl-clipboard
+    xwayland-satellite # x11 support on wayland
   ];
   services.udisks2.enable = true; # File managers support
 
@@ -23,7 +24,10 @@ in
   };
 
   # Desktop sessions
-  programs.niri.enable = true;
+  programs.niri = {
+    enable = true;
+    useNautilus = false;
+  };
 
   # Set default session
   services.displayManager.defaultSession = lib.mkForce "niri";
