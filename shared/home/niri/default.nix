@@ -21,16 +21,15 @@
 
   # Theming
 
-  qt = {
+  home.pointerCursor = {
     enable = true;
-    platformTheme = {
-      name = "kde";
-      # package = pkgs.qt6Packages.qt6ct;
-    };
-    style = {
-      name = "breeze";
-      package = pkgs.kdePackages.breeze;
-    };
+
+    name = "breeze_cursors";
+    package = pkgs.kdePackages.breeze;
+    size = 32;
+
+    x11.enable = true;
+    gtk.enable = true;
   };
 
   gtk = {
@@ -45,10 +44,17 @@
       name = "Papirus";
       package = pkgs.papirus-icon-theme;
     };
+  };
 
-    cursorTheme = {
-      name = "Capitaine Cursors";
-      package = pkgs.capitaine-cursors;
+  qt = {
+    enable = true;
+    platformTheme = {
+      name = "kde";
+      # package = pkgs.qt6Packages.qt6ct;
+    };
+    style = {
+      name = "breeze";
+      package = pkgs.kdePackages.breeze;
     };
   };
 }

@@ -1,5 +1,8 @@
 { pkgs, lib, ... }:
 
+let
+  username = "rikiub";
+in
 {
   # Essensials
   environment.systemPackages = with pkgs; [
@@ -9,13 +12,13 @@
   # Autologin
   services.displayManager.autoLogin = {
     enable = true;
-    user = "rikiub";
+    user = username;
   };
 
   # Display manager
-  services.displayManager.sddm = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
-    wayland.enable = true;
+    passwordlessSyncUsers = [ username ];
   };
 
   # Desktop sessions
