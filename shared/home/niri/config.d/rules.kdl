@@ -12,7 +12,7 @@ window-rule {
 window-rule {
 	match app-id=r#"firefox$"# title="^Picture-in-Picture$"
 	match app-id="qt-sudo"
-	
+
 	open-floating true
 }
 
@@ -20,7 +20,7 @@ window-rule {
 window-rule {
 	match app-id=r#"^org\.keepassxc\.KeePassXC$"#
 	match app-id=r#"^org\.gnome\.World\.Secrets$"#
-	
+
 	block-out-from "screen-capture"
 
 	// Use this instead if you want them visible on third-party screenshot tools.

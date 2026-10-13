@@ -17,23 +17,23 @@ binds {
 	Mod+Space \
 		hotkey-overlay-title="Toggle Launcher" \
 		{ spawn "noctalia" "msg" "panel-toggle" "launcher"; }
-	
+
 	Mod+E \
 		hotkey-overlay-title="Toggle Control Center" \
 		{ spawn "noctalia" "msg" "panel-toggle" "control-center"; }
-	
+
 	Mod+Shift+M \
 		hotkey-overlay-title="Toggle Theme Mode" \
 		{ spawn "noctalia" "msg" "theme-mode-toggle"; }
-	
+
 	Mod+Comma \
 		hotkey-overlay-title="Toggle Noctalia Settings" \
 		{ spawn "noctalia" "msg" "settings-toggle"; }
-	
+
 	Print \
 		hotkey-overlay-title="Take Screenshot Region" \
 		{ spawn "noctalia" "msg" "screenshot-region"; }
-	
+
 	// Audio & Brightness
 	XF86AudioRaiseVolume { spawn-sh "noctalia msg volume-up"; }
 	XF86AudioLowerVolume { spawn-sh "noctalia msg volume-down"; }
