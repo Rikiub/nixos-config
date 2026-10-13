@@ -4,6 +4,7 @@
   home.packages = [
     pkgs.niri
     pkgs.ghostty
+    pkgs.wl-clipboard
   ];
   xdg.configFile."niri".source = ./.;
 
