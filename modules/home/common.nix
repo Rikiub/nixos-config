@@ -5,7 +5,7 @@
     # Goodies
     loupe
     papers
-    nautilus
+    kdePackages.dolphin
     kdePackages.elisa
   ];
 

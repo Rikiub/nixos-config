@@ -1,4 +1,9 @@
-{ config, osConfig, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 let
   root = osConfig.externalHome;
@@ -13,6 +18,10 @@ let
   };
 in
 {
+  home.sessionVariables = {
+    GTK_USE_PORTAL = "1";
+  };
+
   xdg = {
     enable = true;
     autostart.enable = true;
@@ -25,6 +34,16 @@ in
       defaultApplications = {
         "application/pdf" = "papers.desktop";
         "image/*" = "loupe.desktop";
+      };
+    };
+
+    portal = {
+      enable = true;
+      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+      config.common = {
+        default = "*";
+        "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
+        "inode/directory" = [ "org.kde.dolphin.desktop" ];
       };
     };
 

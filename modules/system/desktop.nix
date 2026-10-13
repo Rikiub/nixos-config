@@ -8,6 +8,7 @@ in
   environment.systemPackages = with pkgs; [
     wl-clipboard
   ];
+  services.udisks2.enable = true; # File managers support
 
   # Autologin
   services.displayManager.autoLogin = {
