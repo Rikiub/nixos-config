@@ -3,6 +3,12 @@
 with lib;
 {
   options = {
+    externalHome = mkOption {
+      type = types.str;
+      default = "/media/Datos/Personal";
+      description = "External directory where I save my stuff";
+    };
+
     user = {
       name = mkOption {
         type = types.str;

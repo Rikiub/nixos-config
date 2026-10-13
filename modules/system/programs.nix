@@ -1,16 +1,8 @@
 { pkgs, ... }:
 
 {
-  environment.systemPackages = with pkgs; [
-    # Nix Tools
-    nixd
-    nixfmt
-
-    # CLI editor
-    fresh-editor
-  ];
-
   programs = {
+    # Improve compability with apps
     nix-ld = {
       enable = true;
     };

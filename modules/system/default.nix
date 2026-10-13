@@ -14,6 +14,7 @@
     ./users.nix
     ./services.nix
     ./hardware.nix
+    ./gaming.nix
     ./home-manager.nix
   ];
 

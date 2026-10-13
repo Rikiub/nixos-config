@@ -1,7 +1,7 @@
-{ config, ... }:
+{ config, osConfig, ... }:
 
 let
-  root = "/media/Datos/Personal";
+  root = osConfig.externalHome;
   names = {
     documents = "Documentos";
     downloads = "Descargas";
@@ -15,6 +15,19 @@ in
 {
   xdg = {
     enable = true;
+    autostart.enable = true;
+
+    terminal-exec = {
+      enable = true;
+    };
+    mimeApps = {
+      enable = true;
+      defaultApplications = {
+        "application/pdf" = "papers.desktop";
+        "image/*" = "loupe.desktop";
+      };
+    };
+
     userDirs = {
       enable = true;
       createDirectories = false;
