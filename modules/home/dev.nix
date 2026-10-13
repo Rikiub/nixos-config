@@ -5,6 +5,8 @@
     # Nix LSP
     nixd
     nil
+
+    just # Task Runner
   ];
 
   programs = {
