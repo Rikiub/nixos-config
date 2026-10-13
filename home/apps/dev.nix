@@ -17,6 +17,9 @@
 
     # Python
     uv.enable = true;
+
+    # Others
+    gh.enable = true;
   };
 
   programs.git = {

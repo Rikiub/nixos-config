@@ -11,7 +11,9 @@
   ];
 
   programs = {
-    git.enable = true;
+    nix-ld = {
+      enable = true;
+    };
   };
 
   # Replace sudo
