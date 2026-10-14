@@ -1,10 +1,11 @@
 {
   imports = [
     ./nushell
-    ./desktop-niri
+    ./niri
 
     ./xdg.nix
     ./syncthing.nix
+    ./theme.nix
 
     ./common.nix
     ./cli.nix
