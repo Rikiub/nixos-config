@@ -10,7 +10,9 @@
     kdePackages.elisa # Music Player
     kdePackages.koko # Image Viewer
     kdePackages.okular # PDF Viewer
+
     kdePackages.dolphin # File Manager
+    kdePackages.ark # Zip Manager
   ];
 
   programs = {
