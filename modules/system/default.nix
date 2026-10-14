@@ -2,19 +2,16 @@
 
 {
   imports = [
+    ./desktop
+    ./hardware
+    ./programs
+
     ./options.nix
     ./boot.nix
-    ./sound.nix
     ./locale.nix
-    ./programs.nix
-    ./desktop.nix
     ./filesystems.nix
     ./nix.nix
-    ./network.nix
     ./users.nix
-    ./services.nix
-    ./hardware.nix
-    ./gaming.nix
     ./home-manager.nix
   ];
 
