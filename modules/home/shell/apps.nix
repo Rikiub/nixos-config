@@ -2,8 +2,9 @@
 
 {
   home.packages = with pkgs; [
-    tre # Better tree
-    ouch # Zip manager
+    tre-command # Tree
+    ouch # Zip Manager
+    trashy # Trash Manager
   ];
 
   programs = {
@@ -11,9 +12,9 @@
     fastfetch.enable = true;
     btop.enable = true;
 
-    # Misc
-    ripgrep.enable = true;
+    # Explorers
     bat.enable = true;
+    ripgrep.enable = true;
 
     # File Manager
     yazi = {

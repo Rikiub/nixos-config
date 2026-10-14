@@ -3,7 +3,6 @@
     enable = true;
     configFile.source = ./config.nu;
   };
-  xdg.configFile."nushell/autoload".source = ./autoload;
 
   # cd shortcuts
   programs.zoxide = {
@@ -11,15 +10,15 @@
     enableNushellIntegration = true;
   };
 
-  # Set a nice prompt
-  programs.starship = {
+  # Completions
+  programs.carapace = {
     enable = true;
     enableNushellIntegration = true;
   };
 
-  # Install fish only for autocompletions
-  programs.fish = {
+  # Prompt
+  programs.starship = {
     enable = true;
-    generateCompletions = true;
+    enableNushellIntegration = true;
   };
 }
