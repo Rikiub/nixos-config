@@ -1,16 +1,11 @@
 {
   imports = [
-    ./nushell
-    ./niri
+    ./desktop
+    ./shell
+    ./dev
 
-    ./xdg.nix
-    ./syncthing.nix
-    ./theme.nix
-
-    ./common.nix
-    ./cli.nix
-    ./dev.nix
     ./gaming.nix
+    ./syncthing.nix
   ];
 
   home.stateVersion = "26.05";

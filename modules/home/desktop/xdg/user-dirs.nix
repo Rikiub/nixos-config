@@ -1,7 +1,6 @@
 {
   config,
   osConfig,
-  pkgs,
   ...
 }:
 
@@ -18,25 +17,7 @@ let
   };
 in
 {
-  home.sessionVariables = {
-    GTK_USE_PORTAL = "1";
-  };
-
   xdg = {
-    enable = true;
-    autostart.enable = true;
-
-    terminal-exec = {
-      enable = true;
-    };
-    mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "application/pdf" = "papers.desktop";
-        "image/*" = "loupe.desktop";
-      };
-    };
-
     userDirs = {
       enable = true;
       createDirectories = false;
