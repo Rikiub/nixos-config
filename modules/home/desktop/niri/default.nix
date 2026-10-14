@@ -7,6 +7,7 @@
 
   home.packages = with pkgs; [
     niri
+    cliphist # Clipboard Manager
     xwayland-satellite # x11 support
   ];
 

@@ -17,7 +17,7 @@ blur {
 }
 
 window-rule {
-    match app-id="(?i)(ghostty|zed|discord|nautilus|dolphin|heroic|papers|okular|elisa|loupe)"
+    match app-id="(?i)(ghostty|zed|discord|nautilus|dolphin|heroic|papers|okular|elisa)"
     opacity 0.90
 
     background-effect {
