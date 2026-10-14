@@ -24,6 +24,7 @@
     ghostty = {
       enable = true;
       settings = {
+        theme = "Catppuccin Mocha";
         confirm-close-surface = false;
       };
     };

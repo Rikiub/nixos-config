@@ -28,13 +28,13 @@
 
   qt = {
     enable = true;
-    platformTheme = {
-      name = "kde";
-      # package = pkgs.qt6Packages.qt6ct;
-    };
     style = {
       name = "breeze";
       package = pkgs.kdePackages.breeze;
+    };
+    platformTheme = {
+      name = "kde";
+      # package = pkgs.qtengine;
     };
   };
 }
