@@ -3,12 +3,17 @@
     mimeApps = {
       enable = true;
       defaultApplications = {
-        "application/pdf" = "papers.desktop";
-        "image/*" = "loupe.desktop";
+        "image/*" = "org.kde.koko.desktop";
+        "video/*" = "org.kde.haruna.desktop";
+        "audio/*" = "org.kde.elisa.desktop";
+        "application/pdf" = "okular.desktop";
       };
     };
     terminal-exec = {
       enable = true;
+      settings = {
+        default = [ "ghostty.desktop" ];
+      };
     };
   };
 }
