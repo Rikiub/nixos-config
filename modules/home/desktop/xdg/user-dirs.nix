@@ -1,11 +1,8 @@
-{
-  config,
-  osConfig,
-  ...
-}:
+{ config, lib, ... }:
 
 let
-  root = osConfig.externalHome;
+  root = "/media/Datos/Personal";
+  home = config.home.homeDirectory;
   names = {
     documents = "Documentos";
     downloads = "Descargas";
@@ -15,32 +12,21 @@ let
     public = "Publico";
     projects = "Proyectos";
   };
+  symlink = target: config.lib.file.mkOutOfStoreSymlink "${root}/${target}";
 in
 {
-  xdg = {
-    userDirs = {
-      enable = true;
-      createDirectories = false;
-      setSessionVariables = true;
+  xdg.userDirs = {
+    enable = true;
+    createDirectories = false;
+    setSessionVariables = true;
 
-      documents = "${config.home.homeDirectory}/${names.documents}";
-      download = "${config.home.homeDirectory}/${names.downloads}";
-      music = "${config.home.homeDirectory}/${names.music}";
-      pictures = "${config.home.homeDirectory}/${names.pictures}";
-      videos = "${config.home.homeDirectory}/${names.videos}";
-      publicShare = "${config.home.homeDirectory}/${names.public}";
-    };
+    documents = "${home}/${names.documents}";
+    download = "${home}/${names.downloads}";
+    music = "${home}/${names.music}";
+    pictures = "${home}/${names.pictures}";
+    videos = "${home}/${names.videos}";
+    publicShare = "${home}/${names.public}";
   };
 
-  home.file."${names.documents}".source =
-    config.lib.file.mkOutOfStoreSymlink "${root}/${names.documents}";
-  home.file."${names.downloads}".source =
-    config.lib.file.mkOutOfStoreSymlink "${root}/${names.downloads}";
-  home.file."${names.music}".source = config.lib.file.mkOutOfStoreSymlink "${root}/${names.music}";
-  home.file."${names.pictures}".source =
-    config.lib.file.mkOutOfStoreSymlink "${root}/${names.pictures}";
-  home.file."${names.videos}".source = config.lib.file.mkOutOfStoreSymlink "${root}/${names.videos}";
-  home.file."${names.public}".source = config.lib.file.mkOutOfStoreSymlink "${root}/${names.public}";
-  home.file."${names.projects}".source =
-    config.lib.file.mkOutOfStoreSymlink "${root}/${names.projects}";
+  home.file = lib.mapAttrs' (name: value: lib.nameValuePair value { source = symlink value; }) names;
 }
