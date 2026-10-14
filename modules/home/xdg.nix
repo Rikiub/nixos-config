@@ -39,9 +39,7 @@ in
 
     portal = {
       enable = true;
-      extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
       config.common = {
-        default = "*";
         "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
         "inode/directory" = [ "org.kde.dolphin.desktop" ];
       };

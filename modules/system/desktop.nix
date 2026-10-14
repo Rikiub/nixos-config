@@ -1,26 +1,36 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 
-let
-  username = "rikiub";
-in
 {
   # Essensials
   environment.systemPackages = with pkgs; [
     wl-clipboard
     xwayland-satellite # x11 support on wayland
   ];
-  services.udisks2.enable = true; # File managers support
 
-  # Autologin
-  services.displayManager.autoLogin = {
-    enable = true;
-    user = username;
-  };
+  services = {
+    udisks2.enable = true; # File managers support
 
-  # Display manager
-  services.displayManager.noctalia-greeter = {
-    enable = true;
-    passwordlessSyncUsers = [ username ];
+    displayManager = {
+      # Autologin on unlock
+      autoLogin = {
+        enable = true;
+        user = config.user.name;
+      };
+
+      # Display Manager
+      noctalia-greeter = {
+        enable = true;
+        passwordlessSyncUsers = [ config.user.name ];
+      };
+
+      # Set default session
+      defaultSession = lib.mkForce "niri";
+    };
   };
 
   # Desktop sessions
@@ -28,7 +38,4 @@ in
     enable = true;
     useNautilus = false;
   };
-
-  # Set default session
-  services.displayManager.defaultSession = lib.mkForce "niri";
 }
