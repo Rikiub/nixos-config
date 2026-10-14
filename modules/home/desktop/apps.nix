@@ -2,11 +2,15 @@
 
 {
   home.packages = with pkgs; [
-    # Goodies
-    loupe
-    papers
-    kdePackages.dolphin
-    kdePackages.elisa
+    gdk-pixbuf # Image Thumbnails
+    ffmpeg-headless # Video Thumbnails
+    ffmpegthumbnailer # Video Thumbnails
+
+    haruna # Video Player
+    kdePackages.elisa # Music Player
+    kdePackages.koko # Image Viewer
+    kdePackages.okular # PDF Viewer
+    kdePackages.dolphin # File Manager
   ];
 
   programs = {
