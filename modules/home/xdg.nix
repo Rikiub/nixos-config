@@ -37,14 +37,6 @@ in
       };
     };
 
-    portal = {
-      enable = true;
-      config.common = {
-        "org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-        "inode/directory" = [ "org.kde.dolphin.desktop" ];
-      };
-    };
-
     userDirs = {
       enable = true;
       createDirectories = false;
