@@ -12,7 +12,7 @@
     kdePackages.okular # PDF Viewer
 
     kdePackages.dolphin # File Manager
-    kdePackages.ark # Zip Manager
+    kdePackages.ark # Zip Managers
   ];
 
   programs = {

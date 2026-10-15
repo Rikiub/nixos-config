@@ -2,8 +2,9 @@
 
 {
   environment.systemPackages = with pkgs; [
-    wl-clipboard
+    wl-clipboard # Required for tools (Like GitHub CLI)
   ];
 
+  programs.partition-manager.enable = true; # KDE Partition Manager
   services.udisks2.enable = true; # File managers support
 }

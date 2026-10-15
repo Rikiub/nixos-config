@@ -11,7 +11,7 @@ with lib;
       };
       label = mkOption {
         type = types.str;
-        default = "NixOS";
+        default = "Rikiub";
         description = "System user label";
       };
     };
