@@ -2,12 +2,12 @@
 
 {
   imports = [
+    ./boot
     ./desktop
     ./hardware
     ./programs
 
     ./options.nix
-    ./boot.nix
     ./locale.nix
     ./filesystems.nix
     ./nix.nix
