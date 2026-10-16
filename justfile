@@ -36,7 +36,6 @@ log max="20":
 [doc("Commit + push in one go")]
 [group("git")]
 save message="auto-commit":
-    @just rebuild
     @git add .
     -git commit -m "{{ message }}"
     -git push
