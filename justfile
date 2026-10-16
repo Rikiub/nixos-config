@@ -1,5 +1,5 @@
 default:
-    @just --list
+    @just --list --unsorted
 
 # interactive
 
@@ -28,28 +28,22 @@ gc days="14":
 
 # git
 
-[doc("Commit current changes")]
-[group("git")]
-commit message:
-    @git add .
-    git commit -m "{{ message }}"
-
-[doc("Push commits to respository")]
-[group("git")]
-push:
-    git push
-
 [doc("Commit + push in one go")]
 [group("git")]
 save message:
-    @just commit "{{ message }}"
-    @just push
+    git add .
+    git commit -m "{{ message }}"
+    git push
 
 [doc("Show status")]
 [group("git")]
 status:
-    @git add .
     @git status --short
+
+[doc("Show log")]
+[group("git")]
+log:
+    @git log
 
 # nix
 
@@ -69,3 +63,10 @@ rollback:
 update:
     nix flake update --commit-lock-file
     @just rebuild
+
+[doc("Show current host/system info")]
+[group("nix")]
+info:
+    @echo "host:    $(hostname)"
+    @echo "system:  $(nix eval --raw --impure --expr builtins.currentSystem)"
+    @echo "nixos:   $(nixos-version)"
