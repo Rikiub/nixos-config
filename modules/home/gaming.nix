@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-  home.packages = [
-    pkgs.heroic
+  home.packages = with pkgs; [
+    heroic
   ];
 
   programs = {

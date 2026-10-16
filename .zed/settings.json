@@ -1,0 +1,21 @@
+{
+  "lsp": {
+    "nixd": {
+      "settings": {
+        "formatting": { "command": ["nixfmt"] },
+        "nixpkgs": {
+          "expr": "import <nixpkgs> { }",
+        },
+        "options": {
+          "nixos": {
+            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.laptop.options",
+          },
+
+          "home-manager": {
+            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.laptop.options.home-manager.users.type.getSubOptions []",
+          },
+        },
+      },
+    },
+  },
+}
