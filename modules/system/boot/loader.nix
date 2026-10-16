@@ -1,6 +1,6 @@
 {
-  boot = {
-    loader.limine = {
+  boot.loader = {
+    limine = {
       enable = true;
       maxGenerations = 3;
 
@@ -11,6 +11,6 @@
         path: boot():/EFI/Microsoft/Boot/bootmgfw.efi
       '';
     };
-    loader.efi.canTouchEfiVariables = true;
+    efi.canTouchEfiVariables = true;
   };
 }

@@ -4,7 +4,7 @@
   environment.systemPackages = [
     pkgs.just
 
-    # Just inside config from anywhere
+    # Run just in /etc/nixos from anywhere
     (pkgs.writeShellScriptBin "jn" ''
       just -f "/etc/nixos/justfile" "$@"
     '')
