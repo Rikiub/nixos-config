@@ -6,5 +6,6 @@
     ./shell.nix
     ./flatpak.nix
     ./gaming.nix
+    ./tools.nix
   ];
 }
