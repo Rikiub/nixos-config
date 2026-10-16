@@ -25,6 +25,12 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs hostname; };
           modules = [
+            {
+              environment.sessionVariables = {
+                NIXOS_HOSTNAME = hostname;
+              };
+            }
+
             ./modules/system
             ./hosts/${hostname}/system
             ./hosts/${hostname}/hardware-configuration.nix

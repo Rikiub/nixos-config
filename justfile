@@ -1,6 +1,19 @@
 default:
     @just --list
 
+# git
+
+[doc("Commit current changes")]
+[group("git")]
+commit message:
+    @git add .
+    git commit -m "{{ message }}"
+
+[doc("Push commits to respository")]
+[group("git")]
+push:
+    git push
+
 # nix
 
 [doc("Rebuild to default host")]
@@ -17,16 +30,3 @@ update-flake:
 [doc("Update flake and rebuild system")]
 [group("nix")]
 update: update-flake rebuild
-
-# git
-
-[doc("Commit current changes")]
-[group("git")]
-commit message:
-    @git add .
-    git commit -m "{{ message }}"
-
-[doc("Push changes to respository")]
-[group("git")]
-push:
-    git push
