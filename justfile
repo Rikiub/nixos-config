@@ -31,7 +31,7 @@ gc days="14":
 [doc("Commit + push in one go")]
 [group("git")]
 save message:
-    git add .
+    @git add .
     git commit -m "{{ message }}"
     git push
 
