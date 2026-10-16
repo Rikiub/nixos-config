@@ -1,50 +1,6 @@
 default:
     @just --list --unsorted
 
-# interactive
-
-[doc("Open /etc/nixos with EDITOR or other")]
-[group("interactive")]
-edit editor=env("EDITOR", ""):
-    @{{ editor }} .
-
-# maintenance
-
-[doc("Aggressive GC + optimise store")]
-[group("maintenance")]
-clean:
-    sudo nix-collect-garbage -d
-    nix-store --optimise
-
-[doc("List system generations")]
-[group("maintenance")]
-gens:
-    sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
-
-[doc("Delete generations older than N days")]
-[group("maintenance")]
-gc days="14":
-    sudo nix-collect-garbage --delete-older-than {{ days }}d
-
-# git
-
-[doc("Commit + push in one go")]
-[group("git")]
-save message:
-    @git add .
-    -git commit -m "{{ message }}"
-    -git push
-
-[doc("Show status")]
-[group("git")]
-status:
-    @git status --short
-
-[doc("Show log")]
-[group("git")]
-log:
-    @git log
-
 # nix
 
 [doc("Rebuild to default host")]
@@ -70,3 +26,47 @@ info:
     @echo "host:    $(hostname)"
     @echo "system:  $(nix eval --raw --impure --expr builtins.currentSystem)"
     @echo "nixos:   $(nixos-version)"
+
+# git
+
+[doc("Show status")]
+[group("git")]
+status:
+    @git status --short
+
+[doc("Show commit graph")]
+[group("git")]
+log max="20":
+    @git log --graph --decorate --oneline -n {{ max }} --all
+
+[doc("Commit + push in one go")]
+[group("git")]
+save message:
+    @git add .
+    -git commit -m "{{ message }}"
+    -git push
+
+# interactive
+
+[doc("Open /etc/nixos with EDITOR or other")]
+[group("interactive")]
+edit editor=env("EDITOR", ""):
+    @{{ editor }} .
+
+# maintenance
+
+[doc("List system generations")]
+[group("maintenance")]
+gens:
+    sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
+
+[doc("Aggressive GC + optimise store")]
+[group("maintenance")]
+clean:
+    sudo nix-collect-garbage -d
+    nix-store --optimise
+
+[doc("Delete generations older than N days")]
+[group("maintenance")]
+gc days="14":
+    sudo nix-collect-garbage --delete-older-than {{ days }}d
