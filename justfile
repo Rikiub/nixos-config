@@ -17,8 +17,9 @@ rollback:
 [doc("Update flake.lock and rebuild system")]
 [group("nix")]
 update:
-    nix flake update --commit-lock-file
-    @just rebuild
+    nix flake update
+    just rebuild
+    just save "flake.lock updated"
 
 # git
 
@@ -34,7 +35,7 @@ log max="20":
 
 [doc("Commit + push in one go")]
 [group("git")]
-save message:
+save message="Auto commit":
     @git add .
     -git commit -m "{{ message }}"
     -git push
