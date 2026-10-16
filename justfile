@@ -18,9 +18,10 @@ push:
 
 [doc("Rebuild to default host")]
 [group("nix")]
-rebuild:
+rebuild host="":
+    @{{ host }}
     @git add .
-    sudo nixos-rebuild switch --flake .#nixos
+    sudo nixos-rebuild switch --flake .#${host:-${HOSTNAME}}
 
 [doc("Update flake.lock")]
 [group("nix")]
