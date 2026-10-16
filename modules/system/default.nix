@@ -12,6 +12,7 @@
     ./filesystems.nix
     ./nix.nix
     ./users.nix
+    ./scripts.nix
     ./home-manager.nix
   ];
 
