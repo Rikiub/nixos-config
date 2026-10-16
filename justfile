@@ -18,8 +18,8 @@ rollback:
 [group("nix")]
 update:
     nix flake update
-    just rebuild
-    just save "flake.lock updated"
+    @just rebuild
+    @just save "flake.lock updated"
 
 # git
 
