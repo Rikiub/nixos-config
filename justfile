@@ -20,13 +20,6 @@ update:
     nix flake update --commit-lock-file
     @just rebuild
 
-[doc("Show current host/system info")]
-[group("nix")]
-info:
-    @echo "host:    $(hostname)"
-    @echo "system:  $(nix eval --raw --impure --expr builtins.currentSystem)"
-    @echo "nixos:   $(nixos-version)"
-
 # git
 
 [doc("Show status")]
