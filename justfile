@@ -5,7 +5,7 @@ default:
 
 [doc("Rebuild to default host")]
 [group("nix")]
-rebuild host=env("HOSTNAME", ""):
+rebuild host="":
     @git add .
     sudo nixos-rebuild switch --flake .#{{ host }}
 
