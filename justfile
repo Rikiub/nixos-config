@@ -32,7 +32,7 @@ gc days="14":
 [group("git")]
 save message:
     @git add .
-    git commit -m "{{ message }}"
+    -git commit -m "{{ message }}"
     -git push
 
 [doc("Show status")]
