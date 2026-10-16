@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  xdg = config.xdg;
+  inherit (config) xdg;
 in
 {
   xdg.enable = true;

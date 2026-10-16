@@ -2,8 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    # Nix LSP
+    # LSP
     nixd
     nil
+
+    # Linter
+    statix
   ];
 }
