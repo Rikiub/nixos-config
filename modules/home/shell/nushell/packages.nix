@@ -1,8 +1,13 @@
+{ lib, config, ... }:
+
 {
   programs = {
     nushell = {
       enable = true;
       configFile.source = ./config.nu;
+      environmentVariables = lib.mkMerge [
+        config.home.sessionVariables
+      ];
     };
 
     # cd shortcuts
