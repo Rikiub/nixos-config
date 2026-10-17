@@ -24,7 +24,7 @@
 
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs hostname; };
           modules = [
             (import-tree ./modules/system)
             (import-tree ./hosts/${hostname}/system)
@@ -34,12 +34,12 @@
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit inputs; };
+                extraSpecialArgs = { inherit inputs hostname; };
 
                 users.${config.user.name} = {
                   imports = [
-                    (import-tree ../home)
-                    (import-tree ../../hosts/${hostname}/home)
+                    (import-tree ./modules/home)
+                    (import-tree ./hosts/${hostname}/home)
                   ];
                 };
               };
