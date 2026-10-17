@@ -5,12 +5,6 @@ $env.config = {
 	}
 }
 
-load-env {
-	EDITOR: "fresh"
-	PAGER: "bat --paging=always"
-	MANPAGER: "bat -l man -p"
-}
-
 # List the filenames as grid layout.
 def lsg [...args] {
 	let args = if $args == [] {["."]} else {$args}
