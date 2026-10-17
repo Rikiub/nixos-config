@@ -4,7 +4,7 @@
   home.packages = with pkgs; [
     tre-command # Tree
     ouch # Zip Manager
-    trashy # Trash Manager
+    trash-cli # Trash Manager
   ];
 
   programs = {
