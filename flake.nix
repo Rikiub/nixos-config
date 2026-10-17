@@ -28,7 +28,6 @@
           modules = [
             (import-tree ./modules/system)
             (import-tree ./hosts/${hostname}/system)
-            ./hosts/${hostname}/hardware-configuration.nix
 
             home-manager.nixosModules.home-manager
           ];
