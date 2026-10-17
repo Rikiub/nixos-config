@@ -41,7 +41,7 @@ save message="auto-commit":
 
 # interactive
 
-[doc("Open /etc/nixos with EDITOR or other")]
+[doc("Open config with EDITOR or other")]
 [group("interactive")]
 edit editor=env("EDITOR", ""):
     @{{ editor }} .
@@ -57,9 +57,4 @@ gens:
 [group("maintenance")]
 clean:
     sudo nix-collect-garbage -d
-    nix-store --optimise
-
-[doc("Delete generations older than N days")]
-[group("maintenance")]
-gc days="14":
-    sudo nix-collect-garbage --delete-older-than {{ days }}d
+    nix store optimise
