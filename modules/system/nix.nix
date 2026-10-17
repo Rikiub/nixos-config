@@ -1,10 +1,17 @@
 { hostname, ... }:
 
 {
+  # Metadata
   system.stateVersion = "26.05";
   system.nixos.label = "NixOS";
   networking.hostName = hostname;
 
+  # NixOS Documentation
+  documentation.nixos = {
+    enable = false;
+  };
+
+  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   nix = {
