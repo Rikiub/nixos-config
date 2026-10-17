@@ -19,7 +19,6 @@ rollback:
 update:
     nix flake update
     @just rebuild
-    @just save "flake.lock updated"
 
 # git
 
