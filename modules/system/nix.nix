@@ -1,4 +1,10 @@
+{ hostname, ... }:
+
 {
+  system.stateVersion = "26.05";
+  system.nixos.label = "NixOS";
+  networking.hostName = hostname;
+
   nixpkgs.config.allowUnfree = true;
 
   nix = {

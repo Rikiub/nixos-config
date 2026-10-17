@@ -13,8 +13,8 @@
 
     users.${config.user.name} = {
       imports = [
-        ../home
-        ../../hosts/${hostname}/home
+        (inputs.import-tree ../home)
+        (inputs.import-tree ../../hosts/${hostname}/home)
       ];
     };
   };

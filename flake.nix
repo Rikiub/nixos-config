@@ -8,12 +8,14 @@
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
     };
+    import-tree.url = "github:denful/import-tree";
   };
 
   outputs =
     inputs@{
       nixpkgs,
       home-manager,
+      import-tree,
       ...
     }:
     let
@@ -24,8 +26,8 @@
           system = "x86_64-linux";
           specialArgs = { inherit inputs hostname; };
           modules = [
-            ./modules/system
-            ./hosts/${hostname}/system
+            (import-tree ./modules/system)
+            (import-tree ./hosts/${hostname}/system)
             ./hosts/${hostname}/hardware-configuration.nix
 
             home-manager.nixosModules.home-manager
