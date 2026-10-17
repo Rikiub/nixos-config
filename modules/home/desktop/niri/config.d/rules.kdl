@@ -2,12 +2,6 @@
 // Find more information on the wiki:
 // https://github.com/YaLTeR/niri/wiki/Configuration:-Window-Rules
 
-// Enable rounded corners for all windows.
-window-rule {
-	geometry-corner-radius 12
-	clip-to-geometry true
-}
-
 // Blur effect
 blur {
     passes 5
@@ -17,12 +11,18 @@ blur {
 }
 
 window-rule {
-    match app-id="(?i)(ghostty|zed|discord|nautilus|dolphin|heroic|papers|okular|elisa)"
-    opacity 0.90
+    match app-id="(?i)(ghostty|zed|discord|nautilus|dolphin|heroic|okular|elisa)"
+    opacity 0.9
 
     background-effect {
         blur true
     }
+}
+
+// Enable rounded corners for all windows.
+window-rule {
+	geometry-corner-radius 12
+	clip-to-geometry true
 }
 
 // Open as floating by default.
