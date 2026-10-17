@@ -21,6 +21,7 @@
     starship = {
       enable = true;
       enableNushellIntegration = true;
+      presets = [ "pure-preset" ];
     };
   };
 }

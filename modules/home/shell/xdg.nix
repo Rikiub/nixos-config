@@ -4,8 +4,6 @@ let
   inherit (config) xdg;
 in
 {
-  xdg.enable = true;
-
   home.sessionVariables = {
     _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${xdg.configHome}/java";
 
