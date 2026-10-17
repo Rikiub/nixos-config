@@ -2,7 +2,7 @@
 
 {
   # Enable Flatpak for some niche apps
-  services.flatpak.enable = true;
+  services.flatpak.enable = false;
 
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
