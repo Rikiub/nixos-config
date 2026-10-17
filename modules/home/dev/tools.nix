@@ -6,7 +6,8 @@
   ];
 
   programs = {
+    gh.enable = true; # GitHub CLI
+    uv.enable = true; # Python Manager
     pnpm.enable = true; # NodeJS Package Manager
-    uv.enable = true; # Python
   };
 }
