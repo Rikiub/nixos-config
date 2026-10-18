@@ -34,11 +34,11 @@
         }:
 
         nixpkgs.lib.nixosSystem {
-          system = system;
+          inherit system;
           specialArgs = { inherit inputs; };
 
           modules = [
-            ({ ... }: {
+            (_: {
               config.host.name = hostname;
             })
 
