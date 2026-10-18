@@ -3,7 +3,7 @@
 {
   environment.systemPackages = with pkgs; [
     wl-clipboard # Required for tools (Like GitHub CLI)
-    xdg-user-dirs-gtk
+    xdg-user-dirs-gtk # Required for Nautilus
   ];
 
   programs.partition-manager.enable = true; # KDE Partition Manager
