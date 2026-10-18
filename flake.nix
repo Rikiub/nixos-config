@@ -19,27 +19,44 @@
       import-tree,
       ...
     }:
+
     let
+      # Memoized directory scans
+      systemModules = import-tree ./modules/system;
+      homeModules = import-tree ./modules/home;
+
+      # Per host function
       mkHost =
         hostname:
+        {
+          system ? "x86_64-linux",
+          ...
+        }:
 
         nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          specialArgs = { inherit inputs hostname; };
+          system = system;
+          specialArgs = { inherit inputs; };
+
           modules = [
-            (import-tree ./modules/system)
+            ({ ... }: {
+              config.host.name = hostname;
+            })
+
+            # System
+            systemModules
             (import-tree ./hosts/${hostname}/system)
 
+            # Home Manager
             home-manager.nixosModules.home-manager
             ({ config, ... }: {
               home-manager = {
                 useGlobalPkgs = true;
                 useUserPackages = true;
-                extraSpecialArgs = { inherit inputs hostname; };
+                extraSpecialArgs = { inherit inputs; };
 
                 users.${config.user.name} = {
                   imports = [
-                    (import-tree ./modules/home)
+                    homeModules
                     (import-tree ./hosts/${hostname}/home)
                   ];
                 };
@@ -47,10 +64,13 @@
             })
           ];
         };
+
+      # Collect all hosts
+      hostnames = builtins.attrNames (
+        nixpkgs.lib.filterAttrs (name: type: type == "directory") (builtins.readDir ./hosts)
+      );
     in
     {
-      nixosConfigurations = {
-        laptop = mkHost "laptop";
-      };
+      nixosConfigurations = nixpkgs.lib.genAttrs hostnames (host: mkHost host { });
     };
 }

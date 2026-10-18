@@ -3,6 +3,14 @@
 with lib;
 {
   options = {
+    host = {
+      name = mkOption {
+        type = types.str;
+        default = "nixos";
+        description = "System host name";
+      };
+    };
+
     user = {
       name = mkOption {
         type = types.str;

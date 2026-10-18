@@ -1,10 +1,10 @@
-{ hostname, ... }:
+{ config, ... }:
 
 {
   # Metadata
   system.stateVersion = "26.05";
   system.nixos.label = "NixOS";
-  networking.hostName = hostname;
+  networking.hostName = config.host.name;
 
   # NixOS Documentation
   documentation.nixos = {
