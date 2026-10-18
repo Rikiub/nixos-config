@@ -8,11 +8,10 @@
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.laptop.options",
+            "expr": "let f = builtins.getFlake (builtins.toString ./.); h = builtins.replaceStrings [\"\\n\"] [\"\"] (builtins.readFile /etc/hostname); in f.nixosConfigurations.${h}.options",
           },
-
           "home-manager": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.laptop.options.home-manager.users.type.getSubOptions []",
+            "expr": "let f = builtins.getFlake (builtins.toString ./.); h = builtins.replaceStrings [\"\\n\"] [\"\"] (builtins.readFile /etc/hostname); in f.nixosConfigurations.${h}.options.home-manager.users.type.getSubOptions []",
           },
         },
       },
