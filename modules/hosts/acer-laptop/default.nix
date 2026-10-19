@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 
 let
-  input = inputs.nixos-hardware.nixosModules;
+  hardware = inputs.nixos-hardware.nixosModules;
   inherit (config.flake.modules) nixos homeManager;
 in
 {
@@ -10,10 +10,10 @@ in
     system = "x86_64-linux";
     modules = with nixos; [
       # Hardware specific
-      input.common-pc-laptop
-      input.common-pc-ssd
-      input.common-cpu-intel
-      input.common-gpu-nvidia
+      hardware.common-pc-laptop
+      hardware.common-pc-ssd
+      hardware.common-cpu-intel
+      hardware.common-gpu-nvidia
       host-acer-laptop
 
       # Modules
