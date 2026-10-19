@@ -1,8 +1,7 @@
-{ ... }:
 {
   flake.modules.homeManager.host-acer-laptop = { pkgs, ... }: {
-    home.packages = [
-      pkgs.nvtopPackages.nvidia
+    home.packages = with pkgs; [
+      nvtopPackages.nvidia
     ];
   };
 
