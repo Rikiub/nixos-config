@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.programs = {
+  flake.modules.nixos.programs = { ... }: {
     services.openssh = {
       enable = true;
       openFirewall = true;

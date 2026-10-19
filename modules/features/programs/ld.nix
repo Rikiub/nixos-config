@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.programs = {
+  flake.modules.nixos.programs = { ... }: {
     # Improve compability with apps
     programs.nix-ld = {
       enable = true;

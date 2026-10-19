@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = {
+  flake.modules.nixos.desktop = { ... }: {
     security.polkit.enable = true;
 
     security.pam.services.greetd.enableGnomeKeyring = true;

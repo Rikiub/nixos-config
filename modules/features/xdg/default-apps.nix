@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.xdg = {
+  flake.modules.homeManager.xdg = { ... }: {
     xdg = {
       mimeApps = {
         enable = true;

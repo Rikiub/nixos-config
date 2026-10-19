@@ -1,7 +1,5 @@
-{ ... }:
-
 {
-  flake.modules.homeManager.niri = {
+  flake.modules.homeManager.niri = { ... }: {
     # Desktop Shell
     programs.noctalia = {
       enable = true;

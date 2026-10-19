@@ -6,7 +6,7 @@
     ];
   };
 
-  flake.modules.nixos.host-acer-laptop = {
+  flake.modules.nixos.host-acer-laptop = { ... }: {
     services.xserver.videoDrivers = [
       "modesetting" # Intel
       "nvidia"
