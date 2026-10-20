@@ -15,6 +15,7 @@
       desktop-apps
       desktop-theme
       xdg
+      syncthing
 
       niri
     ];

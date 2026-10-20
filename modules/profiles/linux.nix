@@ -32,8 +32,7 @@
 
   flake.modules.homeManager.profile-linux = { ... }: {
     imports = with config.flake.modules.homeManager; [
-      home-manager
-      syncthing
+      nix
     ];
   };
 }

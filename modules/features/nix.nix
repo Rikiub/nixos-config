@@ -1,4 +1,8 @@
 {
+  flake.modules.homeManager.home-manager = { ... }: {
+    home.stateVersion = "26.05";
+  };
+
   flake.modules.nixos.nix = { config, ... }: {
     # Metadata
     system.stateVersion = "26.05";
