@@ -22,6 +22,7 @@ in
       profile-desktop
       gaming
 
+      inputs.home-manager.nixosModules.home-manager
       {
         home-manager = {
           useGlobalPkgs = true;

@@ -8,13 +8,13 @@
         },
         "options": {
           "nixos": {
-            "expr": "let f = builtins.getFlake (builtins.toString ./.); h = builtins.replaceStrings [\"\\n\"] [\"\"] (builtins.readFile /etc/hostname); in f.nixosConfigurations.${h}.options",
+            "expr": "(builtins.getFlake \"/home/rikiub/.config/nixos\").nixosConfigurations.acer-laptop.options",
           },
           "home-manager": {
-            "expr": "let f = builtins.getFlake (builtins.toString ./.); h = builtins.replaceStrings [\"\\n\"] [\"\"] (builtins.readFile /etc/hostname); in f.nixosConfigurations.${h}.options.home-manager.users.type.getSubOptions []",
+            "expr": "(builtins.getFlake \"/home/rikiub/.config/nixos\").homeConfigurations.\"rikiub@acer-laptop\".options",
           },
           "flake-parts": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).debug.options",
+            "expr": "(builtins.getFlake \"/home/rikiub/.config/nixos\").debug.options",
           },
         },
       },
