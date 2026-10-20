@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.home-manager = { ... }: {
+  flake.modules.homeManager.nix = { ... }: {
     home.stateVersion = "26.05";
   };
 
