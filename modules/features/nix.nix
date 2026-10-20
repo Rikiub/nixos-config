@@ -1,41 +1,43 @@
 {
-  flake.modules.homeManager.nix = { ... }: {
-    home.stateVersion = "26.05";
-  };
-
-  flake.modules.nixos.nix = { config, ... }: {
-    # Metadata
-    system.stateVersion = "26.05";
-    system.nixos.label = "NixOS";
-    networking.hostName = config.host.name;
-
-    # NixOS Documentation
-    documentation.nixos = {
-      enable = false;
+  flake.aspects.nix = {
+    homeManager = { ... }: {
+      home.stateVersion = "26.05";
     };
 
-    # Allow unfree packages
-    nixpkgs.config.allowUnfree = true;
+    nixos = { config, ... }: {
+      # Metadata
+      system.stateVersion = "26.05";
+      system.nixos.label = "NixOS";
+      networking.hostName = config.host.name;
 
-    nix = {
-      # Optimization
-      gc = {
-        automatic = true;
-        dates = "weekly";
-        options = "--delete-older-than 30d";
+      # NixOS Documentation
+      documentation.nixos = {
+        enable = false;
       };
 
-      optimise = {
-        automatic = true;
-        dates = [ "03:45" ];
-      };
-      settings.auto-optimise-store = true;
+      # Allow unfree packages
+      nixpkgs.config.allowUnfree = true;
 
-      # Experimental
-      settings.experimental-features = [
-        "nix-command"
-        "flakes"
-      ];
+      nix = {
+        # Optimization
+        gc = {
+          automatic = true;
+          dates = "weekly";
+          options = "--delete-older-than 30d";
+        };
+
+        optimise = {
+          automatic = true;
+          dates = [ "03:45" ];
+        };
+        settings.auto-optimise-store = true;
+
+        # Experimental
+        settings.experimental-features = [
+          "nix-command"
+          "flakes"
+        ];
+      };
     };
   };
 }

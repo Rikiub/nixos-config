@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell = { config, ... }: {
+  flake.aspects.shell.homeManager = { config, ... }: {
     home.sessionVariables = {
       _JAVA_OPTIONS = "-Djava.util.prefs.userRoot=${config.xdg.configHome}/java";
 

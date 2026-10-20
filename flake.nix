@@ -10,12 +10,14 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+    flake-aspects.url = "github:denful/flake-aspects";
     import-tree.url = "github:denful/import-tree";
   };
 
   outputs =
     inputs@{
       flake-parts,
+      flake-aspects,
       home-manager,
       import-tree,
       ...
@@ -23,6 +25,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       debug = true;
       imports = [
+        flake-aspects.flakeModule
         flake-parts.flakeModules.modules
         (import-tree ./modules)
       ];

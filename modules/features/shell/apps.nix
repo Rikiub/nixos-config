@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell = { pkgs, ... }: {
+  flake.aspects.shell.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       tre-command # Tree
       ouch # Zip Manager

@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.filesystem = { ... }: {
+  flake.aspects.filesystem.nixos = { ... }: {
     fileSystems = {
       "/media/Datos" = {
         device = "/dev/disk/by-label/Datos";

@@ -1,7 +1,7 @@
 { lib, ... }:
 with lib;
 {
-  flake.modules.nixos.options = { ... }: {
+  flake.aspects.options.nixos = { ... }: {
     options = {
       host = {
         name = mkOption {
@@ -24,5 +24,6 @@ with lib;
         };
       };
     };
+
   };
 }

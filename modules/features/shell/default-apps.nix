@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.shell = { ... }: {
+  flake.aspects.shell.homeManager = { ... }: {
     home.sessionVariables = {
       EDITOR = "fresh";
       PAGER = "bat --paging=always";
