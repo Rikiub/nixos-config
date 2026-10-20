@@ -1,46 +1,48 @@
 { config, inputs, ... }:
 
 let
+  features = [
+    "profile-linux"
+    "profile-shell"
+    "profile-dev"
+    "profile-desktop"
+    "gaming"
+  ];
+
+  # Aliases
   hardware = inputs.nixos-hardware.nixosModules;
   inherit (config.flake.modules) nixos homeManager;
+
+  # Pick only the variants that actually exist in that module class.
+  pickNixos = builtins.filter (f: nixos ? ${f}) features;
+  pickHomeManager = builtins.filter (f: homeManager ? ${f}) features;
 in
 {
-  # Define the NixOS system for "jupiter"
   flake.nixosConfigurations.acer-laptop = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
-    modules = with nixos; [
+
+    modules =
       # Hardware specific
-      hardware.common-pc-laptop
-      hardware.common-pc-ssd
-      hardware.common-cpu-intel
-      hardware.common-gpu-nvidia
-      host-acer-laptop
+      [
+        hardware.common-pc-laptop
+        hardware.common-pc-ssd
+        hardware.common-cpu-intel
+        hardware.common-gpu-nvidia
 
-      # Modules
-      profile-linux
-      profile-shell
-      profile-desktop
-      gaming
-
-      inputs.home-manager.nixosModules.home-manager
-      {
-        home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          extraSpecialArgs = { inherit inputs; };
-          users.rikiub = {
-            imports = with homeManager; [
-              host-acer-laptop
-
-              profile-linux
-              profile-shell
-              profile-dev
-              profile-desktop
-              gaming
-            ];
+        nixos.host-acer-laptop
+      ]
+      # NixOS side of each feature
+      ++ (map (f: nixos.${f}) pickNixos)
+      ++ [
+        inputs.home-manager.nixosModules.home-manager
+        {
+          home-manager = {
+            useGlobalPkgs = true;
+            useUserPackages = true;
+            extraSpecialArgs = { inherit inputs; };
+            users.rikiub.imports = (map (f: homeManager.${f}) pickHomeManager);
           };
-        };
-      }
-    ];
+        }
+      ];
   };
 }
