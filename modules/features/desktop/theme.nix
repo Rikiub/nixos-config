@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop = { pkgs, ... }: {
+  flake.modules.homeManager.desktop-theme = { pkgs, ... }: {
     home.pointerCursor = {
       enable = true;
 

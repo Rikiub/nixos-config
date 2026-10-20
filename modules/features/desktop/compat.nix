@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { pkgs, ... }: {
+  flake.modules.nixos.desktop-compat = { pkgs, ... }: {
     environment.systemPackages = with pkgs; [
       wl-clipboard # Required for tools (Like GitHub CLI)
       xdg-user-dirs-gtk # Required for Nautilus

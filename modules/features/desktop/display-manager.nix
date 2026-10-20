@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.desktop = { config, lib, ... }: {
+  flake.modules.nixos.display-manager = { config, lib, ... }: {
     services.displayManager = {
       autoLogin = {
         enable = true;

@@ -17,17 +17,10 @@ in
       host-acer-laptop
 
       # Modules
-      boot
-      shell
-      desktop
-      hardware
+      profile-linux
+      profile-shell
+      profile-desktop
       gaming
-      programs
-      filesystem
-      locale
-      nix
-      options
-      users
 
       inputs.home-manager.nixosModules.home-manager
       {
@@ -38,14 +31,12 @@ in
           users.rikiub = {
             imports = with homeManager; [
               host-acer-laptop
-              home-manager
-              programs
-              dev
-              shell
+
+              profile-linux
+              profile-shell
+              profile-dev
+              profile-desktop
               gaming
-              desktop
-              programs
-              xdg
             ];
           };
         };

@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop = { pkgs, ... }: {
+  flake.modules.homeManager.desktop-apps = { pkgs, ... }: {
     home.packages = with pkgs; [
       gdk-pixbuf # Image Thumbnails
       ffmpeg-headless # Video Thumbnails

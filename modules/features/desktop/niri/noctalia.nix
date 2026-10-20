@@ -1,4 +1,17 @@
 {
+  flake.modules.nixos.niri = { ... }: {
+    programs = {
+      niri = {
+        enable = true;
+      };
+      noctalia = {
+        enable = true;
+        recommendedServices.enable = true;
+      };
+      gpu-screen-recorder.enable = true;
+    };
+  };
+
   flake.modules.homeManager.niri = { ... }: {
     # Desktop Shell
     programs.noctalia = {

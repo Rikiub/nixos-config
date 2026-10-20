@@ -2,7 +2,7 @@ let
   phoneDevice = "Android";
 in
 {
-  flake.modules.homeManager.programs =
+  flake.modules.homeManager.syncthing =
     {
       config,
       pkgs,

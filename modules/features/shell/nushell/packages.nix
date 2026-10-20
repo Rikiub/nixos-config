@@ -1,4 +1,13 @@
 {
+  flake.modules.nixos.shell = { pkgs, ... }: {
+    # Required for pkexec
+    environment.shells = [ pkgs.nushell ];
+
+    # Set nushell as default
+    programs.nushell.enable = true;
+    users.defaultUserShell = pkgs.nushell;
+  };
+
   flake.modules.homeManager.shell = { lib, config, ... }: {
     programs = {
       nushell = {

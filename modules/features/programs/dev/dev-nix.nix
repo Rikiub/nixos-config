@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev = { pkgs, ... }: {
+  flake.modules.homeManager.dev-nix = { pkgs, ... }: {
     home.packages = with pkgs; [
       # LSP
       nixd
