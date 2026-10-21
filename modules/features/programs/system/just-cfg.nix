@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.just-cfg = { pkgs, ... }: {
+  flake.aspects.just-cfg.nixos = { pkgs, ... }: {
     environment.systemPackages = [
       pkgs.just
 

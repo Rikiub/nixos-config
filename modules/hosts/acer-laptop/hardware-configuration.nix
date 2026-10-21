@@ -3,7 +3,7 @@
 # to /etc/nixos/configuration.nix instead.
 
 {
-  flake.modules.nixos.host-acer-laptop =
+  flake.aspects.host-acer-laptop.nixos =
     {
       config,
       lib,

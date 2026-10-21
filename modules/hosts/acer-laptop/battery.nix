@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.host-acer-laptop = { lib, ... }: {
+  flake.aspects.host-acer-laptop.nixos = { lib, ... }: {
     services = {
       # Suspend on lid close
       logind.settings.Login = {

@@ -1,10 +1,9 @@
-{ config, ... }:
 {
-  flake.modules.nixos.profile-linux = { ... }: {
-    imports = with config.flake.modules.nixos; [
+  flake.aspects = { aspects, ... }: {
+    profile-linux.includes = with aspects; [
       # Boot
       kernel
-      loader
+      limine
       plymouth
 
       # Hardware
@@ -23,16 +22,9 @@
       just-cfg
 
       # Programs
-      # flatpak
       nix-ld
-      ssh
       sudo
-    ];
-  };
-
-  flake.modules.homeManager.profile-linux = { ... }: {
-    imports = with config.flake.modules.homeManager; [
-      nix
+      git
     ];
   };
 }

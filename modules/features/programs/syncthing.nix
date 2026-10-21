@@ -1,8 +1,8 @@
-let
-  phoneDevice = "Android";
-in
 {
-  flake.modules.homeManager.syncthing =
+  flake.aspects.syncthing.homeManager =
+    let
+      phoneDevice = "Android";
+    in
     {
       config,
       pkgs,

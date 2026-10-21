@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.loader = { ... }: {
+  flake.aspects.loader.nixos = { ... }: {
     boot.loader = {
       limine = {
         enable = true;

@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.desktop-theme = { pkgs, ... }: {
+  flake.aspects.desktop-theme.homeManager = { pkgs, ... }: {
     home.pointerCursor = {
       enable = true;
 

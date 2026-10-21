@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.plymouth = { ... }: {
+  flake.aspects.plymouth.nixos = { ... }: {
     boot = {
       plymouth = {
         enable = true;

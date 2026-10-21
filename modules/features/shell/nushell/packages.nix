@@ -1,5 +1,5 @@
 {
-  flake.aspects.shell = {
+  flake.aspects.nushell = {
     nixos = { pkgs, ... }: {
       # Required for pkexec
       environment.shells = [ pkgs.nushell ];

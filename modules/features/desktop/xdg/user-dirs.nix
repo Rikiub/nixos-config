@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.xdg =
+  flake.aspects.xdg.homeManager =
     { config, lib, ... }:
     let
       root = "/media/Datos/Personal";

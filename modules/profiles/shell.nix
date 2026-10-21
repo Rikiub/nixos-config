@@ -1,14 +1,8 @@
-{ config, ... }:
 {
-  flake.modules.nixos.profile-shell = { ... }: {
-    imports = with config.flake.modules.nixos; [
+  flake.aspects = { aspects, ... }: {
+    profile-shell.includes = with aspects; [
       shell
-    ];
-  };
-
-  flake.modules.homeManager.profile-shell = { ... }: {
-    imports = with config.flake.modules.homeManager; [
-      shell
+      nushell
     ];
   };
 }

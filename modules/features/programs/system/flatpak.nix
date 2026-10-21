@@ -1,5 +1,5 @@
 {
-  flake.modules.nixos.flatpak = { pkgs, ... }: {
+  flake.aspects.flatpak.nixos = { pkgs, ... }: {
     # Enable Flatpak for some niche apps
     services.flatpak.enable = false;
 

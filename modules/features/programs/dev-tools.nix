@@ -1,5 +1,5 @@
 {
-  flake.modules.homeManager.dev-tools = { pkgs, ... }: {
+  flake.aspects.dev-tools.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       just # Task Runner
     ];
