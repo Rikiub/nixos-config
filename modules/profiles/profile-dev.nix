@@ -2,13 +2,14 @@
   flake.aspects = { aspects, ... }: {
     profile-dev = {
       includes = with aspects; [
+        dev-common
         dev-nix
-        dev-tools
-        editors
         git
+        zed-editor
       ];
 
       nixos = { };
+      homeManager = { };
     };
   };
 }

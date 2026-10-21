@@ -1,5 +1,5 @@
 {
-  flake.aspects.gaming = {
+  flake.aspects.apps-gaming = {
     nixos = { ... }: {
       programs = {
         steam.enable = true;

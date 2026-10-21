@@ -2,6 +2,8 @@
   flake.aspects = { aspects, ... }: {
     profile-linux = {
       includes = with aspects; [
+        profile-base
+
         # Boot
         kernel
         limine
@@ -15,20 +17,17 @@
         # Core
         filesystem
         locale
-        nix
-        options
         users
 
-        # Helpers
-        just-cfg
-
         # Programs
+        just-cfg
         nix-ld
         sudo
         git
       ];
 
       nixos = { };
+      homeManager = { };
     };
   };
 }

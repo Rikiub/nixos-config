@@ -1,14 +1,18 @@
 { config, inputs, ... }:
 
 let
+  host.name = "acer-laptop";
+  user = {
+    name = "rikiub";
+    label = "Rikiub";
+  };
   features = [
-    "host-acer-laptop"
+    "acer-laptop"
 
     "profile-linux"
     "profile-shell"
     "profile-dev"
     "profile-desktop"
-    "gaming"
   ];
 
   # Aliases
@@ -20,10 +24,16 @@ let
   pickHomeManager = builtins.filter (f: homeManager ? ${f}) features;
 in
 {
-  flake.nixosConfigurations.acer-laptop = inputs.nixpkgs.lib.nixosSystem {
+  flake.nixosConfigurations.${host.name} = inputs.nixpkgs.lib.nixosSystem {
     system = "x86_64-linux";
 
     modules = [
+      (_: {
+        config = {
+          inherit host user;
+        };
+      })
+
       # Hardware specific
       hardware.common-pc-laptop
       hardware.common-pc-ssd
@@ -39,7 +49,7 @@ in
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit inputs; };
-          users.rikiub.imports = (map (f: homeManager.${f}) pickHomeManager);
+          users.${user.name}.imports = (map (f: homeManager.${f}) pickHomeManager);
         };
       }
     ];

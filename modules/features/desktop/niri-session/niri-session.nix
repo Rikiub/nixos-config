@@ -1,6 +1,6 @@
 {
-  flake.aspects = { aspects, ... }: {
-    niri = {
+  flake.aspects = { aspects, lib, ... }: {
+    niri-session = {
       includes = with aspects; [
         noctalia
         desktop-compat
@@ -9,6 +9,7 @@
 
       nixos = { ... }: {
         programs.niri.enable = true;
+        services.displayManager.defaultSession = lib.mkForce "niri";
       };
 
       homeManager =

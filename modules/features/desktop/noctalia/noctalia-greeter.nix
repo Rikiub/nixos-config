@@ -1,5 +1,5 @@
 {
-  flake.aspects.display-manager.nixos = { config, lib, ... }: {
+  flake.aspects.noctalia-greeter.nixos = { config, ... }: {
     services.displayManager = {
       autoLogin = {
         enable = true;
@@ -10,8 +10,6 @@
         enable = true;
         passwordlessSyncUsers = [ config.user.name ];
       };
-
-      defaultSession = lib.mkForce "niri";
     };
   };
 }

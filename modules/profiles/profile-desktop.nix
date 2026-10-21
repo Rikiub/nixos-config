@@ -2,16 +2,18 @@
   flake.aspects = { aspects, ... }: {
     profile-desktop = {
       includes = with aspects; [
-        niri
-        xdg
-        display-manager
-        gui-apps
+        niri-session
+        noctalia-greeter
         keyring
+        xdg
 
-        syncthing
+        apps-common
+        apps-desktop
+        apps-gaming
       ];
 
       nixos = { };
+      homeManager = { };
     };
   };
 }

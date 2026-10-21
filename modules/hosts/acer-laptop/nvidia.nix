@@ -1,5 +1,5 @@
 {
-  flake.aspects.host-acer-laptop = {
+  flake.aspects.acer-laptop = {
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         nvtopPackages.nvidia
