@@ -1,5 +1,5 @@
 {
-  flake.aspects.apps-desktop = {
+  flake.aspects.kde-apps = {
     nixos = { ... }: {
       programs.partition-manager.enable = true; # KDE Partition Manager
     };

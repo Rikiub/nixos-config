@@ -7,9 +7,9 @@
         keyring
         xdg
 
-        apps-common
-        apps-desktop
-        apps-gaming
+        media
+        gaming
+        kde-apps
       ];
 
       nixos = { };
