@@ -1,5 +1,5 @@
 {
-  flake.aspects.noctalia = { ... }: {
+  flake.aspects.noctalia = {
     nixos = { ... }: {
       programs = {
         noctalia = {

@@ -1,7 +1,7 @@
 {
   flake.aspects = { aspects, ... }: {
     git = {
-      include = with aspects; [ ssh ];
+      includes = with aspects; [ ssh ];
 
       homeManager = { ... }: {
         programs.git = {

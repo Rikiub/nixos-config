@@ -5,8 +5,9 @@
     };
 
     nixos = { config, ... }: {
-      # Metadata
       system.stateVersion = "26.05";
+
+      # Metadata
       system.nixos.label = "NixOS";
       networking.hostName = config.host.name;
 
