@@ -1,8 +1,11 @@
 {
   flake.aspects = { aspects, ... }: {
-    profile-dev = {
+    shell = {
       includes = with aspects; [
-        dev
+        apps-shell
+        xdg-redirect
+
+        nushell # Default Interactive Shell
       ];
 
       nixos = { };

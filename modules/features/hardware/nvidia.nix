@@ -1,5 +1,5 @@
 {
-  flake.aspects.acer-laptop = {
+  flake.aspects.nvidia = {
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         nvtopPackages.nvidia
@@ -7,11 +7,6 @@
     };
 
     nixos = { ... }: {
-      services.xserver.videoDrivers = [
-        "modesetting" # Intel
-        "nvidia"
-      ];
-
       hardware.nvidia = {
         open = true;
         modesetting.enable = true;
@@ -19,12 +14,19 @@
           enable = true;
           finegrained = true;
         };
-
-        prime = {
-          intelBusId = "PCI:0:2:0";
-          nvidiaBusId = "PCI:1:0:0";
-        };
       };
+
+      # This MUST be overrided per host
+      # services.xserver.videoDrivers = [
+      #   "modesetting" # Intel
+      #   "nvidia"
+      # ];
+
+      # This MUST be overrided per host
+      # hardware.nvidia.prime = {
+      #     intelBusId = "PCI:0:2:0";
+      #     nvidiaBusId = "PCI:1:0:0";
+      # };
     };
   };
 }

@@ -1,5 +1,5 @@
 {
-  flake.aspects.acer-laptop.nixos = { lib, ... }: {
+  flake.aspects.battery.nixos = { lib, ... }: {
     services = {
       # Suspend on lid close
       logind.settings.Login = {

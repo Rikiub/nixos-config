@@ -1,18 +1,13 @@
 {
   flake.aspects = { aspects, ... }: {
-    profile-linux = {
+    system-linux = {
       includes = with aspects; [
-        profile-base
+        system-base
 
         # Boot
         kernel
         limine
         plymouth
-
-        # Hardware
-        bluetooth
-        network
-        sound
 
         # Core
         filesystem

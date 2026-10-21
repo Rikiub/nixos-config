@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }: {
-    apps-gaming = {
+    gaming = {
       includes = with aspects; [
         heroic
         mangohud

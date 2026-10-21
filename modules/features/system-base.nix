@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }: {
-    profile-base = {
+    system-base = {
       includes = with aspects; [
         nix
         options

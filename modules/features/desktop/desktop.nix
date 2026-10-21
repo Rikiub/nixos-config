@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }: {
-    profile-desktop = {
+    desktop = {
       includes = with aspects; [
         niri-session
         noctalia-greeter
