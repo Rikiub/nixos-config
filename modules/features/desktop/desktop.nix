@@ -6,10 +6,6 @@
         noctalia-greeter
         keyring
         xdg
-
-        media
-        gaming
-        kde-apps
       ];
 
       nixos = { };

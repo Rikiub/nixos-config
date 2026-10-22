@@ -1,8 +1,8 @@
 {
   flake.aspects = { aspects, ... }: {
-    system-linux = {
+    nixos = {
       includes = with aspects; [
-        system-base
+        base
 
         # Boot
         kernel
