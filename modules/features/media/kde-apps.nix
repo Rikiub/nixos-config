@@ -9,6 +9,8 @@
         gdk-pixbuf # Image Thumbnails
         ffmpeg-headless # Video Thumbnails
         ffmpegthumbnailer # Video Thumbnails
+        kdePackages.kdegraphics-thumbnailers # Thumbnails
+        ghostscript # PDF Thumbnails
 
         haruna # Video Player
         kdePackages.elisa # Music Player

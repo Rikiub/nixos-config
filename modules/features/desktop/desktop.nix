@@ -4,7 +4,7 @@
       includes = with aspects; [
         niri-session
         noctalia-greeter
-        keyring
+        gnome-keyring
         xdg
       ];
 
