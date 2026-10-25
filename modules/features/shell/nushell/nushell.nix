@@ -9,14 +9,11 @@
       users.defaultUserShell = pkgs.nushell;
     };
 
-    homeManager = { lib, config, ... }: {
+    homeManager = { ... }: {
       programs = {
         nushell = {
           enable = true;
           configFile.source = ./config.nu;
-          environmentVariables = lib.mkMerge [
-            config.home.sessionVariables
-          ];
         };
 
         # cd shortcuts
