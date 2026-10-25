@@ -22,14 +22,11 @@
   outputs =
     inputs@{
       flake-parts,
-      flake-aspects,
-      home-manager,
-      import-tree,
       ...
     }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       debug = true;
-      imports = [
+      imports = with inputs; [
         flake-aspects.flakeModule
         flake-parts.flakeModules.modules
         (import-tree ./modules)
