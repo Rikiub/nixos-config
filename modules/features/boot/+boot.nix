@@ -1,9 +1,9 @@
 {
   flake.aspects = { aspects, ... }: {
-    base = {
+    boot = {
       includes = with aspects; [
-        nix
-        options
+        limine
+        plymouth
       ];
 
       nixos = { };

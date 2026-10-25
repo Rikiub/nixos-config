@@ -1,5 +1,5 @@
 {
-  flake.aspects.nix-tools.homeManager = { pkgs, ... }: {
+  flake.aspects.nix.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
       # LSP
       nixd

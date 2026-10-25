@@ -1,14 +1,17 @@
 {
   flake.aspects = { aspects, ... }: {
-    desktop = {
+    media = {
       includes = with aspects; [
-        niri-session
-        noctalia-greeter
-        gnome-keyring
         xdg
+
+        obsidian
+        ghostty
+        syncthing
+        firefox
+        discord
+        kde-apps
       ];
 
-      nixos = { };
       homeManager = { };
     };
   };

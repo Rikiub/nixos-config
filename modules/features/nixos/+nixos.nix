@@ -2,23 +2,19 @@
   flake.aspects = { aspects, ... }: {
     nixos = {
       includes = with aspects; [
-        base
-
-        # Boot
-        kernel
-        limine
-        plymouth
+        defaults
 
         # Core
+        kernel
         filesystem
         locale
         users
 
         # Programs
-        just-cfg
+        cfg
         nix-ld
+        ssh
         sudo
-        git
       ];
 
       nixos = { };

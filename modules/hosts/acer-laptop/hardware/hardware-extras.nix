@@ -5,11 +5,12 @@
         battery
         bluetooth
         network
-        sound
         nvidia
+        sound
       ];
 
       nixos = { inputs, ... }: {
+        # General
         imports = with inputs.nixos-hardware.nixosModules; [
           common-pc-laptop
           common-pc-ssd
@@ -17,6 +18,7 @@
           common-gpu-nvidia
         ];
 
+        # Nvidia
         services.xserver.videoDrivers = [
           "modesetting" # Intel
           "nvidia"

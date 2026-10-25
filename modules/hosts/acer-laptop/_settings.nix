@@ -9,14 +9,13 @@
 
   aspects = [
     "acer-laptop"
+    "boot"
     "nixos"
 
     "desktop"
+    "shell"
+    "dev"
     "media"
     "gaming"
-    "kde-apps"
-
-    "dev"
-    "shell"
   ];
 }

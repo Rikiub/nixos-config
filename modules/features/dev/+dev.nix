@@ -1,10 +1,13 @@
 {
   flake.aspects = { aspects, ... }: {
-    gaming = {
+    dev = {
       includes = with aspects; [
-        heroic
-        mangohud
-        steam
+        git
+        just
+        nix
+        nodejs
+        python
+        zed-editor
       ];
 
       nixos = { };

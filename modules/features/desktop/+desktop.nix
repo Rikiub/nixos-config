@@ -1,14 +1,13 @@
 {
   flake.aspects = { aspects, ... }: {
-    media = {
+    desktop = {
       includes = with aspects; [
-        obsidian
-        ghostty
-        syncthing
-        firefox
-        discord
+        noctalia-greeter
+        niri-session
+        oo7
       ];
 
+      nixos = { };
       homeManager = { };
     };
   };
