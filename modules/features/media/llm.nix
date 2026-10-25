@@ -4,6 +4,7 @@
       services.ollama = {
         enable = true;
         package = pkgs.ollama-cuda;
+        loadModels = [ "ministral-3:8b" ];
       };
     };
 

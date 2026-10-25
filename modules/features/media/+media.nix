@@ -12,7 +12,6 @@
         kde-apps
 
         # Services
-        llm
         syncthing
       ];
 
