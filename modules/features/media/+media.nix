@@ -12,6 +12,7 @@
         kde-apps
       ];
 
+      nixos = { };
       homeManager = { };
     };
   };

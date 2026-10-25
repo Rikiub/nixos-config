@@ -7,10 +7,8 @@
     homeManager = { pkgs, ... }: {
       home.packages = with pkgs; [
         gdk-pixbuf # Image Thumbnails
-        ffmpeg-headless # Video Thumbnails
         ffmpegthumbnailer # Video Thumbnails
-        kdePackages.kdegraphics-thumbnailers # Thumbnails
-        ghostscript # PDF Thumbnails
+        kdePackages.kdegraphics-thumbnailers # PDF Thumbnails
 
         haruna # Video Player
         kdePackages.elisa # Music Player
