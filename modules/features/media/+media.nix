@@ -4,12 +4,16 @@
       includes = with aspects; [
         xdg
 
+        # Apps
         obsidian
         ghostty
-        syncthing
         firefox
         discord
         kde-apps
+
+        # Services
+        llm
+        syncthing
       ];
 
       nixos = { };
