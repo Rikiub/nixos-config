@@ -33,7 +33,6 @@
         {
           home.packages = with pkgs; [
             niri
-            cliphist
             xwayland-satellite
           ];
 
