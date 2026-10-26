@@ -11,5 +11,14 @@
         push.autoSetupRemote = true;
       };
     };
+
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+    programs.lazygit = {
+      enable = true;
+      enableNushellIntegration = false;
+    };
   };
 }
