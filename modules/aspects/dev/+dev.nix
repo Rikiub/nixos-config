@@ -3,7 +3,6 @@
     dev = {
       includes = with aspects; [
         git
-        jujutsu
         just
         nix
         nodejs
