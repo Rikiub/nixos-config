@@ -3,7 +3,7 @@
     boot.loader = {
       limine = {
         enable = true;
-        maxGenerations = 3;
+        maxGenerations = 5;
 
         # Include Windows partition
         extraEntries = ''
