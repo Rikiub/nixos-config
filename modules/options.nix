@@ -28,6 +28,11 @@ with lib;
               default = "Rikiub";
               description = "System user label";
             };
+            email = mkOption {
+              type = types.str;
+              default = "rikiub.dev@gmail.com";
+              description = "Email to use in VCS (like git)";
+            };
           };
         };
       };

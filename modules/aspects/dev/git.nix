@@ -1,10 +1,12 @@
 {
-  flake.aspects.git.homeManager = { ... }: {
+  flake.aspects.git.homeManager = { osConfig, ... }: {
     programs.git = {
       enable = true;
       settings = {
-        user.name = "Rikiub";
-        user.email = "rikiub.dev@gmail.com";
+        user = {
+          name = osConfig.user.name;
+          email = osConfig.user.email;
+        };
 
         init.defaultBranch = "main";
         pull.rebase = true;
