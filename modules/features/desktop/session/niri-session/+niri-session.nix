@@ -31,11 +31,7 @@
               '';
         in
         {
-          home.packages = with pkgs; [
-            niri
-            xwayland-satellite
-          ];
-
+          wayland.windowManager.niri.enable = true;
           xdg.configFile = {
             "niri/config.kdl".source = "${niriConfigChecked}/config.kdl";
             "niri/config.d".source = "${niriConfigChecked}/config.d";

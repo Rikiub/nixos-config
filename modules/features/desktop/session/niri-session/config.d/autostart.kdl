@@ -1,2 +1,0 @@
-// Clipboard History
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"

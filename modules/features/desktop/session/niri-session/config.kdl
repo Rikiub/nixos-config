@@ -9,7 +9,6 @@ include "config.d/layout.kdl"
 include "config.d/rules.kdl"
 include "config.d/keybinds.kdl"
 include "config.d/misc.kdl"
-include "config.d/autostart.kdl"
 include "config.d/output.kdl"
 
 // Modules
