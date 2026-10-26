@@ -43,8 +43,8 @@ save message="auto-commit":
 
 [doc("Open config with EDITOR or other")]
 [group("interactive")]
-edit editor=env("EDITOR", ""):
-    @{{ editor }} .
+open app=env("EDITOR", ""):
+    @{{ app }} .
 
 # maintenance
 
