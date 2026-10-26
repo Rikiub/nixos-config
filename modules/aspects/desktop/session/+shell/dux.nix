@@ -1,8 +1,7 @@
 {
-  flake.aspects.dux.nixos = { inputs, pkgs, ... }: {
-    programs.dms-shell = {
+  flake.aspects.dux.nixos = { ... }: {
+    programs.dux-shell = {
       enable = true;
-      package = inputs.dux.packages.${pkgs.stdenv.hostPlatform.system}.default;
     };
   };
 }
