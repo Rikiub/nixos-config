@@ -9,7 +9,6 @@
 
   aspects = [
     "acer-laptop"
-    "boot"
     "nixos"
 
     "desktop"

@@ -7,7 +7,6 @@
       ];
 
       nixos = { };
-      homeManager = { };
     };
   };
 }

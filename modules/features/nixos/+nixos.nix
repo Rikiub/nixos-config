@@ -5,8 +5,9 @@
         defaults
 
         # Core
-        kernel
+        boot
         filesystem
+        kernel
         locale
         users
 
