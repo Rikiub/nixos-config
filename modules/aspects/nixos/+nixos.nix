@@ -2,8 +2,6 @@
   flake.aspects = { aspects, ... }: {
     nixos = {
       includes = with aspects; [
-        defaults
-
         # Core
         boot
         filesystem

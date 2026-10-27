@@ -8,9 +8,11 @@
   };
 
   aspects = [
-    "acer-laptop"
-    "nixos"
+    "defaults" # Core
+    "nixos" # System
+    "acer-laptop" # Host
 
+    # Groups
     "desktop"
     "shell"
     "dev"
