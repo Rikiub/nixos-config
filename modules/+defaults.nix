@@ -2,7 +2,6 @@
   flake.aspects = { aspects, ... }: {
     defaults = {
       includes = with aspects; [
-        nix
         options
       ];
 

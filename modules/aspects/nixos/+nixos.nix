@@ -9,6 +9,7 @@
         filesystem
         kernel
         locale
+        nix
         users
 
         # Programs
