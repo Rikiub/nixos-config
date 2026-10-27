@@ -1,31 +1,21 @@
 { config, inputs, ... }:
 
 let
-  settings = import ./_settings.nix;
+  host = import ./_settings.nix;
 
   # Aliases
-  inherit (settings)
-    system
-    host
-    user
-    aspects
-    ;
   inherit (config.flake.modules) nixos homeManager;
 
   # Pick only the variants that actually exist in that module class.
-  pick = modules: builtins.filter (f: modules ? ${f}) aspects;
+  pick = modules: builtins.filter (f: modules ? ${f}) host.aspects;
 in
 {
-  flake.nixosConfigurations.${settings.host.name} = inputs.nixpkgs.lib.nixosSystem {
-    inherit system;
+  flake.nixosConfigurations.${host.options.hostname} = inputs.nixpkgs.lib.nixosSystem {
+    system = host.system;
     specialArgs = { inherit inputs; };
 
     modules = [
-      (_: {
-        config = {
-          inherit host user;
-        };
-      })
+      { config.flake = host.options or { }; }
     ]
     ++
       # NixOS side of each feature
@@ -37,7 +27,7 @@ in
           useGlobalPkgs = true;
           useUserPackages = true;
           extraSpecialArgs = { inherit inputs; };
-          users.${settings.user.name}.imports = (map (f: homeManager.${f}) (pick homeManager));
+          users.${host.options.user.name}.imports = (map (f: homeManager.${f}) (pick homeManager));
         };
       }
     ];

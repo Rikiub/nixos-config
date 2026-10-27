@@ -4,8 +4,8 @@
       enable = true;
       settings = {
         user = {
-          name = osConfig.user.name;
-          email = osConfig.user.email;
+          name = osConfig.flake.user.name;
+          email = osConfig.flake.user.email;
         };
 
         init.defaultBranch = "main";

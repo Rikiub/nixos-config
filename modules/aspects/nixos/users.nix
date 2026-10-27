@@ -1,8 +1,8 @@
 {
   flake.aspects.users.nixos = { config, ... }: {
-    users.users.${config.user.name} = {
+    users.users.${config.flake.user.name} = {
       isNormalUser = true;
-      description = config.user.label;
+      description = config.flake.user.label;
       extraGroups = [
         "networkmanager"
         "wheel"

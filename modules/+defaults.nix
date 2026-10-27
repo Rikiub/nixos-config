@@ -1,9 +1,7 @@
 {
   flake.aspects = { aspects, ... }: {
     defaults = {
-      includes = with aspects; [
-        options
-      ];
+      includes = with aspects; [ options ];
 
       homeManager = { ... }: {
         home.stateVersion = "26.11";

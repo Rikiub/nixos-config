@@ -3,7 +3,7 @@
     nixos = { config, ... }: {
       # Metadata
       system.nixos.label = "NixOS";
-      networking.hostName = config.host.name;
+      networking.hostName = config.flake.hostname;
 
       # NixOS Documentation
       documentation.nixos = {

@@ -3,12 +3,12 @@
     services.displayManager = {
       autoLogin = {
         enable = true;
-        user = config.user.name;
+        user = config.flake.user.name;
       };
 
       noctalia-greeter = {
         enable = true;
-        passwordlessSyncUsers = [ config.user.name ];
+        passwordlessSyncUsers = [ config.flake.user.name ];
       };
     };
   };

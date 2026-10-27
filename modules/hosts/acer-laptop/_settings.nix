@@ -1,10 +1,12 @@
 {
   system = "x86_64-linux";
 
-  host.name = "acer-laptop";
-  user = {
-    name = "rikiub";
-    label = "Rikiub";
+  options = {
+    hostname = "acer-laptop";
+    user = {
+      name = "rikiub";
+      label = "Rikiub";
+    };
   };
 
   aspects = [

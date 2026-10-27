@@ -1,40 +1,30 @@
 { lib, ... }:
-with lib;
 {
-  flake.aspects.options.nixos = {
-    options = {
-      host = mkOption {
-        type = types.submodule {
-          options = {
-            name = mkOption {
-              type = types.str;
-              default = "nixos";
-              description = "System host name";
-            };
-          };
-        };
+  flake.aspects.options.nixos = { ... }: {
+    options.flake = {
+      hostname = lib.mkOption {
+        type = lib.types.str;
+        default = "nixos";
       };
 
-      user = mkOption {
-        type = types.submodule {
+      user = lib.mkOption {
+        type = lib.types.submodule {
           options = {
-            name = mkOption {
-              type = types.str;
+            name = lib.mkOption {
+              type = lib.types.str;
               default = "rikiub";
-              description = "System username";
             };
-            label = mkOption {
-              type = types.str;
+            label = lib.mkOption {
+              type = lib.types.str;
               default = "Rikiub";
-              description = "System user label";
             };
-            email = mkOption {
-              type = types.str;
+            email = lib.mkOption {
+              type = lib.types.str;
               default = "rikiub.dev@gmail.com";
-              description = "Email to use in VCS (like git)";
             };
           };
         };
+        default = { };
       };
     };
   };
