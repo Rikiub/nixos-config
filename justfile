@@ -32,7 +32,6 @@ status:
 log max="20":
     @git log --graph --decorate --oneline -n {{ max }} --all
 
-[arg("message", short="m")]
 [doc("Commit + push in one go")]
 [group("git")]
 save message="auto-commit":
