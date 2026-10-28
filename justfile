@@ -41,7 +41,7 @@ save message="auto-commit":
 
 # interactive
 
-[doc("Open config with EDITOR or other")]
+[doc("Open configuration directory on application")]
 [group("interactive")]
 open app=env("EDITOR", ""):
     @{{ app }} .
