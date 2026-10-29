@@ -6,6 +6,7 @@
         fsType = "ntfs";
         options = [
           "defaults"
+          "noatime"
           "nofail"
         ];
       };
