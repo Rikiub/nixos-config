@@ -11,13 +11,15 @@
         users
 
         # Programs
-        cfg
+        nh
+        ns
         nix-ld
         ssh
         sudo
       ];
 
       nixos = { };
+      homeManager = { };
     };
   };
 }

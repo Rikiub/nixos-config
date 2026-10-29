@@ -3,22 +3,27 @@ default:
 
 # nix
 
-[doc("Rebuild to default host")]
+[doc("Build and switch to a specified NixOS flake configuration")]
 [group("nix")]
 rebuild host="":
     @git add .
-    sudo nixos-rebuild switch --flake .#{{ host }}
+    nh os switch .#{{ host }}
 
-[doc("Roll back to previous generation")]
+[doc("Rollback to previous generation")]
 [group("nix")]
 rollback:
-    sudo nixos-rebuild switch --rollback
+    nh os rollback .
 
-[doc("Update flake.lock and rebuild system")]
+[doc("Update all the flake inputs and rebuild system")]
 [group("nix")]
 update:
-    nix flake update
-    @just rebuild
+    @git add .
+    nh os switch --update .
+
+[doc("List available generations from profile path")]
+[group("nix")]
+info:
+    nh os info
 
 # git
 
@@ -41,6 +46,16 @@ save message="auto-commit":
 
 # interactive
 
+[doc("Search for a package in Nixpkgs")]
+[group("interactive")]
+search *args:
+    nh search {{ args }}
+
+[doc("Load system in a repl")]
+[group("interactive")]
+repl:
+    nh os repl .
+
 [doc("Open configuration directory on application")]
 [group("interactive")]
 open app=env("EDITOR", ""):
@@ -56,5 +71,5 @@ gens:
 [doc("Aggressive GC + optimise store")]
 [group("maintenance")]
 clean:
-    sudo nix-collect-garbage -d
+    nh clean all
     nix store optimise
