@@ -7,7 +7,7 @@ default:
 [group("nix")]
 switch host="":
     @git add .
-    nh os switch .#{{ host }}
+    nh os switch --quiet .#{{ host }}
 
 [doc("Rollback to previous generation")]
 [group("nix")]
@@ -18,7 +18,7 @@ rollback:
 [group("nix")]
 update:
     @git add .
-    nh os switch --update .
+    nh os switch --quiet --update .
 
 [doc("List available generations from profile path")]
 [group("nix")]
