@@ -31,6 +31,23 @@ clean:
     nh clean all
     nix store optimise
 
+# interactive
+
+[doc("Search for a package in Nixpkgs")]
+[group("interactive")]
+search *args:
+    nh search {{ args }}
+
+[doc("Load system in a repl")]
+[group("interactive")]
+repl:
+    nh os repl .
+
+[doc("Open configuration directory on application")]
+[group("interactive")]
+open app=env("EDITOR", ""):
+    @{{ app }} .
+
 # git
 
 [doc("Show status")]
@@ -49,20 +66,3 @@ save message="auto-commit":
     @git add .
     -git commit -m "{{ message }}"
     -git push
-
-# interactive
-
-[doc("Search for a package in Nixpkgs")]
-[group("interactive")]
-search *args:
-    nh search {{ args }}
-
-[doc("Load system in a repl")]
-[group("interactive")]
-repl:
-    nh os repl .
-
-[doc("Open configuration directory on application")]
-[group("interactive")]
-open app=env("EDITOR", ""):
-    @{{ app }} .
