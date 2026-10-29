@@ -1,9 +1,9 @@
 {
-  flake.aspects.ns.nixos = { pkgs, ... }: {
+  flake.aspects.nx.nixos = { pkgs, ... }: {
     environment.systemPackages = [
       pkgs.just
 
-      (pkgs.writeShellScriptBin "ns" ''
+      (pkgs.writeShellScriptBin "nx" ''
         #!/usr/bin/env bash
         set -euo pipefail
 

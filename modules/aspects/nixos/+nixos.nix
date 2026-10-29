@@ -12,7 +12,7 @@
 
         # Programs
         nh
-        ns
+        nx
         nix-ld
         ssh
         sudo
