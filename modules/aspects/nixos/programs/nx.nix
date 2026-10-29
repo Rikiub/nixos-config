@@ -1,6 +1,7 @@
 {
   flake.aspects.nx.nixos = { pkgs, ... }: {
     environment.systemPackages = [
+      pkgs.nh
       pkgs.just
 
       (pkgs.writeShellScriptBin "nx" ''

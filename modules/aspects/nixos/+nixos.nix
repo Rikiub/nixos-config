@@ -11,9 +11,8 @@
         users
 
         # Programs
-        nh
-        nx
         nix-ld
+        nx
         ssh
         sudo
       ];

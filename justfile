@@ -5,7 +5,7 @@ default:
 
 [doc("Build and switch to a specified NixOS flake configuration")]
 [group("nix")]
-rebuild host="":
+switch host="":
     @git add .
     nh os switch .#{{ host }}
 
@@ -24,6 +24,12 @@ update:
 [group("nix")]
 info:
     nh os info
+
+[doc("Aggressive GC + optimise store")]
+[group("nix")]
+clean:
+    nh clean all
+    nix store optimise
 
 # git
 
@@ -60,16 +66,3 @@ repl:
 [group("interactive")]
 open app=env("EDITOR", ""):
     @{{ app }} .
-
-# maintenance
-
-[doc("List system generations")]
-[group("maintenance")]
-gens:
-    sudo nix-env --list-generations --profile /nix/var/nix/profiles/system
-
-[doc("Aggressive GC + optimise store")]
-[group("maintenance")]
-clean:
-    nh clean all
-    nix store optimise
