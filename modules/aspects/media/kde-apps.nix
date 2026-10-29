@@ -15,6 +15,8 @@
         kdePackages.koko # Image Viewer
         kdePackages.okular # PDF Viewer
 
+        kdePackages.kalk # Calculator
+
         kdePackages.dolphin # File Manager
         kdePackages.ark # Zip Manager
       ];
