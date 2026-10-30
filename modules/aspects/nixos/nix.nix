@@ -1,8 +1,7 @@
 {
-  flake.aspects.nix.nixos = { config, ... }: {
+  flake.aspects.nix.nixos = { ... }: {
     # Metadata
     system.nixos.label = "NixOS";
-    networking.hostName = config.flake.hostname;
 
     # NixOS Documentation
     documentation.nixos = {
