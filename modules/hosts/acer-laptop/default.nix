@@ -6,7 +6,7 @@ let
 in
 {
   flake.nixosConfigurations.${hostname} = inputs.nixpkgs.lib.nixosSystem {
-    system = system;
+    inherit system;
     specialArgs = { inherit inputs; };
 
     modules = [
