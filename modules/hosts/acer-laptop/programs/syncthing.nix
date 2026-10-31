@@ -1,5 +1,5 @@
 {
-  flake.aspects.syncthing.homeManager =
+  flake.aspects.acer-laptop.homeManager =
     let
       phoneDevice = "Android";
     in

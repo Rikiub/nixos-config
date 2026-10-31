@@ -10,9 +10,6 @@
         firefox
         discord
         kde-apps
-
-        # Services
-        syncthing
       ];
 
       nixos = { };

@@ -1,5 +1,5 @@
 {
-  flake.aspects.xdg.homeManager =
+  flake.aspects.acer-laptop.homeManager =
     { config, lib, ... }:
     let
       root = "/media/Datos/Personal";

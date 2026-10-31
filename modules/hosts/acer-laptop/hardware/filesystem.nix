@@ -1,5 +1,5 @@
 {
-  flake.aspects.filesystem.nixos = { ... }: {
+  flake.aspects.acer-laptop.nixos = { ... }: {
     fileSystems = {
       "/media/Datos" = {
         device = "/dev/disk/by-label/Datos";
