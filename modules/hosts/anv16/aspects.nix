@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }: {
-    acer-laptop = {
+    anv16 = {
       includes = with aspects; [
         defaults # Core
         nixos # System

@@ -1,5 +1,5 @@
 {
-  flake.aspects.acer-laptop.homeManager =
+  flake.aspects.anv16.homeManager =
     { config, lib, ... }:
     let
       root = "/media/Datos/Personal";

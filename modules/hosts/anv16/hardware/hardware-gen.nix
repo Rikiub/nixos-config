@@ -2,7 +2,7 @@
 # and may be overwritten by future invocations.
 
 {
-  flake.aspects.acer-laptop.nixos =
+  flake.aspects.anv16.nixos =
     {
       config,
       lib,

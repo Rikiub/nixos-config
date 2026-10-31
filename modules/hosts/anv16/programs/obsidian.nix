@@ -1,5 +1,5 @@
 {
-  flake.aspects.acer-laptop.homeManager = { ... }: {
+  flake.aspects.anv16.homeManager = { ... }: {
     programs.obsidian.vaults = {
       "Obsidian".target = "Documentos/Obsidian";
     };

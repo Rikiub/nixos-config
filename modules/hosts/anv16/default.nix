@@ -1,7 +1,7 @@
 { config, inputs, ... }:
 
 let
-  hostname = "acer-laptop";
+  hostname = "anv16";
   system = "x86_64-linux";
 in
 {
