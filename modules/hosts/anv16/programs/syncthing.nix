@@ -2,6 +2,9 @@
   flake.aspects.anv16.homeManager =
     let
       phoneDevice = "Android";
+
+      devices = [ phoneDevice ];
+      ignorePerms = true;
     in
     {
       config,
@@ -24,32 +27,27 @@
             "Publico" = {
               id = "publico";
               path = "${config.xdg.userDirs.publicShare}";
-              devices = [ phoneDevice ];
-              ignorePerms = true;
+              inherit devices ignorePerms;
             };
             "Obsidian" = {
               id = "obsidian";
               path = "${config.xdg.userDirs.documents}/Obsidian";
-              devices = [ phoneDevice ];
-              ignorePerms = true;
+              inherit devices ignorePerms;
             };
             "Musica" = {
               id = "musica";
               path = "${config.xdg.userDirs.music}/Personal";
-              devices = [ phoneDevice ];
-              ignorePerms = true;
+              inherit devices ignorePerms;
             };
             "Imagenes" = {
               id = "imagenes";
               path = "${config.xdg.userDirs.pictures}/Personal";
-              devices = [ phoneDevice ];
-              ignorePerms = true;
+              inherit devices ignorePerms;
             };
             "Videos" = {
               id = "videos";
               path = "${config.xdg.userDirs.videos}/Personal";
-              devices = [ phoneDevice ];
-              ignorePerms = true;
+              inherit devices ignorePerms;
             };
           };
         };
