@@ -13,6 +13,7 @@
     homeManager = { ... }: {
       programs.noctalia = {
         enable = true;
+        settings = ./noctalia.toml;
       };
     };
   };
