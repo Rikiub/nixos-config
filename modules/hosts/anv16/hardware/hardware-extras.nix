@@ -19,7 +19,7 @@
           common-gpu-nvidia
         ];
 
-        # Nvidia
+        # Nvidia PRIME
         services.xserver.videoDrivers = [
           "modesetting" # Intel
           "nvidia"
