@@ -4,7 +4,7 @@
       includes = with aspects; [
         git
         just
-        nix
+        lsp
         nodejs
         python
         zed-editor

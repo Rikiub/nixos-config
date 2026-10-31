@@ -3,9 +3,12 @@
     shell = {
       includes = with aspects; [
         apps-shell
-        xdg-redirect
-
-        nushell # Default Interactive Shell
+        bat
+        fresh-editor
+        tldr
+        yazi
+        nushell # Interactive Shell
+        xdg-redirect # Extras
       ];
 
       nixos = { };
