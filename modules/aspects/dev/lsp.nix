@@ -7,7 +7,6 @@
       vscode-json-languageserver # JSON
       yaml-language-server # YAML
       taplo # TOML
-      just-lsp # justfile
 
       nixd # Nix
       nil # Nix

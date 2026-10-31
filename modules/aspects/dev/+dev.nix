@@ -7,7 +7,6 @@
         lsp
         nodejs
         python
-        zed-editor
       ];
 
       nixos = { };

@@ -1,9 +1,6 @@
 {
   flake.aspects.nodejs.homeManager = { pkgs, ... }: {
-    home.packages = with pkgs; [
-      nodejs
-      python3
-    ];
+    home.packages = with pkgs; [ nodejs ];
     programs.pnpm.enable = true; # NodeJS Package Manager
   };
 }

@@ -20,7 +20,7 @@
     };
     programs.lazygit = {
       enable = true;
-      enableNushellIntegration = false;
+      enableNushellIntegration = true;
     };
   };
 }

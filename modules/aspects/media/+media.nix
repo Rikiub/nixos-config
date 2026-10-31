@@ -9,6 +9,7 @@
         ghostty
         firefox
         discord
+        zed-editor
         kde-apps
       ];
 
