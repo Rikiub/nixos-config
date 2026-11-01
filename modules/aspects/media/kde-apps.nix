@@ -26,8 +26,8 @@
           "video/*" = "org.kde.haruna.desktop";
           "audio/*" = "org.kde.elisa.desktop";
           "image/*" = "org.kde.koko.desktop";
-          "application/pdf" = "okular.desktop";
-          "inode/directory" = "dolphin.desktop";
+          "application/pdf" = "org.kde.okular.desktop";
+          "inode/directory" = "org.kde.dolphin.desktop";
         };
       };
 
