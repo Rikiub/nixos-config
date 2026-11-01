@@ -1,5 +1,5 @@
 {
-  flake.aspects.desktop-theme.homeManager = { pkgs, ... }: {
+  flake.aspects.niri-session.homeManager = { pkgs, ... }: {
     home.pointerCursor = {
       enable = true;
 

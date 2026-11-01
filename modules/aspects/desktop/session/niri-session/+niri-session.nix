@@ -1,11 +1,7 @@
 {
   flake.aspects = { aspects, ... }: {
     niri-session = {
-      includes = with aspects; [
-        noctalia
-        desktop-compat
-        desktop-theme
-      ];
+      includes = with aspects; [ noctalia ];
 
       nixos = { ... }: {
         programs.niri.enable = true;
@@ -28,12 +24,16 @@
               '';
         in
         {
+          # Config
           wayland.windowManager.niri.enable = true;
           xdg.configFile = {
             "niri/config.kdl".source = "${niriConfigChecked}/config.kdl";
             "niri/config.d".source = "${niriConfigChecked}/config.d";
             "niri/modules".source = "${niriConfigChecked}/modules";
           };
+
+          # Persistent clipboard
+          services.wl-clip-persist.enable = true;
         };
     };
   };
