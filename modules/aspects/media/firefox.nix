@@ -36,9 +36,10 @@
         };
 
         settings = {
-          "browser.tabs.inTitlebar" = 0;
           "browser.toolbars.bookmarks.visibility" = "never";
           "sidebar.verticalTabs" = true;
+          "browser.tabs.inTitlebar" = 0; # Remove CSD
+          "browser.taskbarTabs.enabled" = true; # PWAs
         };
       };
     };

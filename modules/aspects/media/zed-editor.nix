@@ -21,6 +21,7 @@
         "nix"
         "lua"
         "toml"
+        "kdl"
         "python"
       ];
     };

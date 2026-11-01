@@ -11,8 +11,6 @@ include "config.d/keybinds.kdl"
 include "config.d/misc.kdl"
 include "config.d/output.kdl"
 
-// Modules
-include "modules/noctalia.kdl"
-
-// Others
-include "noctalia.kdl"
+// Noctalia
+include optional=true "modules/noctalia.kdl"
+include optional=true "noctalia.kdl"

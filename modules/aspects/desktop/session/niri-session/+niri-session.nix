@@ -24,9 +24,6 @@
                 chmod -R u+w $out
                 rm -f $out/*.nix
 
-                # Stub the runtime-generated files so `niri validate` can resolve includes.
-                : > $out/noctalia.kdl
-
                 niri validate --config $out/config.kdl
               '';
         in
