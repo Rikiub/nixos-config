@@ -3,8 +3,14 @@
     # Required for pkexec
     environment.shells = [ pkgs.nushell ];
 
-    # Set nushell as default
+    # Set Nushell as default from Bash
     programs.nushell.enable = true;
-    users.defaultUserShell = pkgs.nushell;
+    programs.bash.enable = true;
+
+    programs.bash.interactiveShellInit = ''
+      if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+        exec nu
+      fi
+    '';
   };
 }

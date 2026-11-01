@@ -1,5 +1,4 @@
 { config, inputs, ... }:
-
 let
   hostname = "anv16";
   system = "x86_64-linux";

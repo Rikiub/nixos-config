@@ -1,16 +1,19 @@
 {
   flake.aspects.anv16.homeManager =
-    let
-      phoneDevice = "Android";
-
-      devices = [ phoneDevice ];
-      ignorePerms = true;
-    in
     {
       config,
       pkgs,
       ...
     }:
+    let
+      dev = {
+        phone = "Android";
+      };
+      devices = [
+        dev.phone
+      ];
+      ignorePerms = true;
+    in
     {
       home.packages = with pkgs; [ syncthingtray ];
 
@@ -19,7 +22,7 @@
 
         settings = {
           devices = {
-            ${phoneDevice} = {
+            ${dev.phone} = {
               id = "F7E4ZZI-OIBBWZ6-KHSYACL-SRO66AJ-AWRMLNI-E3BDF3Q-BKTAMPG-U25LGAT";
             };
           };
