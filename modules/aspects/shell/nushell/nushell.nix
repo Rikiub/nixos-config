@@ -1,39 +1,28 @@
 {
-  flake.aspects.nushell = {
-    nixos = { pkgs, ... }: {
-      # Required for pkexec
-      environment.shells = [ pkgs.nushell ];
+  flake.aspects.nushell.homeManager = { ... }: {
+    programs = {
+      nushell = {
+        enable = true;
+        configFile.source = ./config.nu;
+      };
 
-      # Set nushell as default
-      programs.nushell.enable = true;
-      users.defaultUserShell = pkgs.nushell;
-    };
+      # cd shortcuts
+      zoxide = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
 
-    homeManager = { ... }: {
-      programs = {
-        nushell = {
-          enable = true;
-          configFile.source = ./config.nu;
-        };
+      # Completions
+      carapace = {
+        enable = true;
+        enableNushellIntegration = true;
+      };
 
-        # cd shortcuts
-        zoxide = {
-          enable = true;
-          enableNushellIntegration = true;
-        };
-
-        # Completions
-        carapace = {
-          enable = true;
-          enableNushellIntegration = true;
-        };
-
-        # Prompt
-        starship = {
-          enable = true;
-          enableNushellIntegration = true;
-          presets = [ "pure-preset" ];
-        };
+      # Prompt
+      starship = {
+        enable = true;
+        enableNushellIntegration = true;
+        presets = [ "pure-preset" ];
       };
     };
   };
