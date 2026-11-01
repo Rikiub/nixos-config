@@ -13,6 +13,7 @@
       nixos = { inputs, ... }: {
         # General
         imports = with inputs.nixos-hardware.nixosModules; [
+          ./_hardware-gen.nix
           common-pc-laptop
           common-pc-ssd
           common-cpu-intel

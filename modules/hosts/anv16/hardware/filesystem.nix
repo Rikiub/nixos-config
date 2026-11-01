@@ -1,15 +1,16 @@
 {
-  flake.aspects.anv16.nixos = { ... }: {
-    fileSystems = {
-      "/media/Datos" = {
-        device = "/dev/disk/by-label/Datos";
-        fsType = "ntfs";
-        options = [
-          "defaults"
-          "noatime"
-          "nofail"
-        ];
+  flake.aspects.anv16.nixos =
+    let
+      options = [
+        "compress=zstd:1"
+        "noatime"
+      ];
+    in
+    { ... }: {
+      fileSystems = {
+        "/".options = options;
+        "/home".options = options;
+        "/nix".options = options;
       };
     };
-  };
 }
