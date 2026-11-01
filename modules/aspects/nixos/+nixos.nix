@@ -4,6 +4,7 @@
       includes = with aspects; [
         # Core
         boot
+        env
         kernel
         locale
         nix

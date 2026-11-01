@@ -1,5 +1,5 @@
 {
-  flake.aspects.git.homeManager = { osConfig, ... }: {
+  flake.aspects.git.homeManager = { osConfig, pkgs, ... }: {
     programs.git = {
       enable = true;
       settings = {
@@ -15,7 +15,7 @@
     };
 
     # GitHub CLI
-    programs.gh.enable = true;
+    home.packages = with pkgs; [ gh ];
 
     # Better diff
     programs.delta = {

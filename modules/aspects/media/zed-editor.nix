@@ -8,10 +8,16 @@
         format_on_save = "on";
         theme = {
           mode = "system";
+          light = "Catppuccin Latte";
+          dark = "Catppuccin Frappé";
         };
       };
 
       extensions = [
+        # Themes
+        "catppuccin"
+
+        # Languages
         "nix"
         "lua"
         "toml"
