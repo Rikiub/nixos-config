@@ -14,10 +14,16 @@
       };
     };
 
+    # GitHub CLI
+    programs.gh.enable = true;
+
+    # Better diff
     programs.delta = {
       enable = true;
       enableGitIntegration = true;
     };
+
+    # Convenient TUI
     programs.lazygit = {
       enable = true;
       enableNushellIntegration = true;
