@@ -2,15 +2,12 @@
   flake.aspects = { aspects, ... }: {
     media = {
       includes = with aspects; [
-        xdg
-
-        # Apps
+        kde-apps
         obsidian
         ghostty
         firefox
         discord
         zed-editor
-        kde-apps
       ];
 
       nixos = { };
