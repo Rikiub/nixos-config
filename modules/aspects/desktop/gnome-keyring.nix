@@ -1,5 +1,5 @@
 {
-  flake.aspects.keyring.nixos = { ... }: {
+  flake.aspects.gnome-keyring.nixos = { ... }: {
     # gnome-keyring
     services.gnome.gnome-keyring.enable = true;
 
