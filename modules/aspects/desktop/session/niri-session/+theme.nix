@@ -7,8 +7,8 @@
       package = pkgs.kdePackages.breeze;
       size = 32;
 
-      x11.enable = true;
       gtk.enable = true;
+      x11.enable = false;
     };
 
     gtk = {
