@@ -6,6 +6,7 @@
         git
         just
         lsp
+        nix
         nodejs
         python
       ];

@@ -7,11 +7,6 @@
       vscode-json-languageserver # JSON
       yaml-language-server # YAML
       taplo # TOML
-
-      nixd # Nix
-      nil # Nix
-      nixfmt # Nix Formatter
-      statix # Nix Linter
     ];
   };
 }
