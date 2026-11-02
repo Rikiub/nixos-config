@@ -5,12 +5,13 @@
 
     # Set Nushell as default from Bash
     programs.nushell.enable = true;
-    programs.bash.enable = true;
-
-    programs.bash.interactiveShellInit = ''
-      if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
-        exec nu
-      fi
-    '';
+    programs.bash = {
+      enable = true;
+      interactiveShellInit = ''
+        if ! [ "$TERM" = "dumb" ] && [ -z "$BASH_EXECUTION_STRING" ]; then
+          exec nu
+        fi
+      '';
+    };
   };
 }
