@@ -8,7 +8,6 @@
         tldr
         yazi
         nushell # Interactive Shell
-        xdg-redirect # Extras
       ];
 
       nixos = { };
