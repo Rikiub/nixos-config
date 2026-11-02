@@ -14,15 +14,5 @@
         home.backupFileExtension = "backup";
       };
     };
-
-    xdg = {
-      nixos = { ... }: {
-        nix.settings.use-xdg-base-directories = true;
-      };
-
-      homeManager = { ... }: {
-        home.preferXdgDirectories = true;
-      };
-    };
   };
 }
