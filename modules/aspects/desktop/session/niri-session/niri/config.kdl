@@ -10,6 +10,7 @@ include "config.d/rules.kdl"
 include "config.d/keybinds.kdl"
 include "config.d/misc.kdl"
 include "config.d/output.kdl"
+include "config.d/input.kdl"
 
 // Noctalia
 include optional=true "modules/noctalia.kdl"
