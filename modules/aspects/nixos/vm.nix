@@ -11,7 +11,7 @@
           "-device"
           "virtio-vga-gl"
           "-display"
-          "gtk,gl=on"
+          "gtk,gl=on,grab-on-hover=on"
         ];
       };
 
