@@ -47,6 +47,12 @@ repl:
 open app=env("EDITOR", ""):
     @{{ app }} .
 
+[doc("Build and run NixOS VM image of current host")]
+[group("interactive")]
+vm:
+    mkdir -p tmp/
+    cd tmp/ && nh os build-vm --run
+
 # git
 
 [doc("Show status")]

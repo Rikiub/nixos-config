@@ -11,6 +11,7 @@
         locale
         nix
         users
+        vm
 
         # Programs
         nix-ld
