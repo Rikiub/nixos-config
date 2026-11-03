@@ -5,9 +5,7 @@
         enable = true;
         settings = {
           show_banner = false;
-          rm = {
-            always_trash = true;
-          };
+          rm.always_trash = true;
         };
       };
 
