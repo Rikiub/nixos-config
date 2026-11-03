@@ -1,13 +1,13 @@
 {
   flake.aspects.nx.nixos =
-    { pkgs, ... }:
+    { pkgs, user, ... }:
     let
-      relFlakeDir = ".config/nixos";
+      flakeDir = "/home/${user.name}/.config/nixos";
     in
     {
       programs.nh = {
         enable = true;
-        flake = "$HOME/${relFlakeDir}";
+        flake = flakeDir;
       };
 
       environment.systemPackages = [
@@ -17,11 +17,11 @@
           #!/usr/bin/env bash
           set -euo pipefail
 
-          if [[ -f "${relFlakeDir}/justfile" ]]; then
-            exec just -f "${relFlakeDir}/justfile" "$@"
+          if [[ -f "${flakeDir}/justfile" ]]; then
+            exec just -f "${flakeDir}/justfile" "$@"
           fi
 
-          printf 'Error: no justfile found in: "${relFlakeDir}"' >&2
+          printf 'Error: no justfile found in: "${flakeDir}"' >&2
           exit 1
         '')
       ];

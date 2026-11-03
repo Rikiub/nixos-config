@@ -1,14 +1,14 @@
 {
-  flake.aspects.noctalia-greeter.nixos = { config, ... }: {
+  flake.aspects.noctalia-greeter.nixos = { user, ... }: {
     services.displayManager = {
       autoLogin = {
         enable = true;
-        user = config.flake.user.name;
+        user = user.name;
       };
 
       noctalia-greeter = {
         enable = true;
-        passwordlessSyncUsers = [ config.flake.user.name ];
+        passwordlessSyncUsers = [ user.name ];
       };
     };
   };

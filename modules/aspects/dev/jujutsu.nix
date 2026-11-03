@@ -1,11 +1,11 @@
 {
-  flake.aspects.jujutsu.homeManager = { osConfig, ... }: {
+  flake.aspects.jujutsu.homeManager = { user, ... }: {
     programs.jujutsu = {
       enable = true;
       settings = {
         user = {
-          name = osConfig.flake.user.name;
-          email = osConfig.flake.user.email;
+          name = user.name;
+          email = user.email;
         };
       };
     };
