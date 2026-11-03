@@ -9,6 +9,12 @@ switch host="":
     @git add .
     nh os switch --quiet .#{{ host }}
 
+[doc("Build and activate a specified NixOS flake configuration specialisation")]
+[group("nix")]
+test host="":
+    @git add .
+    nh os test --quiet .#{{ host }}
+
 [doc("Rollback to previous generation")]
 [group("nix")]
 rollback:
