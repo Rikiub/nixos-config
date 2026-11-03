@@ -1,32 +1,5 @@
 {
   flake.aspects = { aspects, ... }: {
-    dolphin = {
-      nixos = { ... }: {
-        services.udisks2.enable = true; # For show drives
-      };
-
-      homeManager = { pkgs, ... }: {
-        home.packages = with pkgs; [
-          kdePackages.dolphin # File Manager
-          kdePackages.ark # Zip Manager
-          gdk-pixbuf # Image Thumbnails
-          ffmpegthumbnailer # Video Thumbnails
-          kdePackages.kdegraphics-thumbnailers # PDF Thumbnails
-        ];
-
-        # Set Dolphin as default
-        xdg.mimeApps.defaultApplications = {
-          "inode/directory" = "org.kde.dolphin.desktop";
-        };
-
-        xdg.portal = {
-          enable = true;
-          extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
-          config.common."org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
-        };
-      };
-    };
-
     kde-apps = {
       includes = with aspects; [ dolphin ];
 
@@ -49,6 +22,38 @@
           "audio/*" = "org.kde.elisa.desktop";
           "image/*" = "org.kde.koko.desktop";
           "application/pdf" = "org.kde.okular.desktop";
+        };
+      };
+    };
+
+    dolphin = {
+      nixos = { ... }: {
+        services.udisks2.enable = true; # For show drives
+      };
+
+      homeManager = { pkgs, ... }: {
+        home.packages = with pkgs; [
+          kdePackages.dolphin # File Manager
+          kdePackages.ark # Zip Manager
+
+          kdePackages.kio # needed since 25.11
+          kdePackages.kio-fuse # to mount remote filesystems via FUSE
+          kdePackages.kio-extras # extra protocols support (sftp, fish and more)
+
+          gdk-pixbuf # Image Thumbnails
+          ffmpegthumbnailer # Video Thumbnails
+          kdePackages.kdegraphics-thumbnailers # PDF Thumbnails
+        ];
+
+        # Set Dolphin as default
+        xdg.mimeApps.defaultApplications = {
+          "inode/directory" = "org.kde.dolphin.desktop";
+        };
+
+        xdg.portal = {
+          enable = true;
+          extraPortals = [ pkgs.kdePackages.xdg-desktop-portal-kde ];
+          config.common."org.freedesktop.impl.portal.FileChooser" = [ "kde" ];
         };
       };
     };
