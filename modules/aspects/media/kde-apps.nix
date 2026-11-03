@@ -15,11 +15,8 @@
         ];
 
         # Set Dolphin as default
-        xdg.mimeApps = {
-          enable = true;
-          defaultApplications = {
-            "inode/directory" = "org.kde.dolphin.desktop";
-          };
+        xdg.mimeApps.defaultApplications = {
+          "inode/directory" = "org.kde.dolphin.desktop";
         };
 
         xdg.portal = {
@@ -47,14 +44,11 @@
         ];
 
         # Set default apps
-        xdg.mimeApps = {
-          enable = true;
-          defaultApplications = {
-            "video/*" = "org.kde.haruna.desktop";
-            "audio/*" = "org.kde.elisa.desktop";
-            "image/*" = "org.kde.koko.desktop";
-            "application/pdf" = "org.kde.okular.desktop";
-          };
+        xdg.mimeApps.defaultApplications = {
+          "video/*" = "org.kde.haruna.desktop";
+          "audio/*" = "org.kde.elisa.desktop";
+          "image/*" = "org.kde.koko.desktop";
+          "application/pdf" = "org.kde.okular.desktop";
         };
       };
     };
