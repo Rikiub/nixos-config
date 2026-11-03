@@ -3,7 +3,12 @@
     programs = {
       nushell = {
         enable = true;
-        configFile.source = ./config.nu;
+        settings = {
+          show_banner = false;
+          rm = {
+            always_trash = true;
+          };
+        };
       };
 
       # cd shortcuts
