@@ -1,28 +1,29 @@
 {
-  flake.aspects.nx.nixos = { pkgs, ... }: {
-    environment.systemPackages = [
-      pkgs.nh
-      pkgs.just
+  flake.aspects.nx.nixos =
+    { pkgs, ... }:
+    let
+      relFlakeDir = ".config/nixos";
+    in
+    {
+      programs.nh = {
+        enable = true;
+        flake = "$HOME/${relFlakeDir}";
+      };
 
-      (pkgs.writeShellScriptBin "nx" ''
-        #!/usr/bin/env bash
-        set -euo pipefail
+      environment.systemPackages = [
+        pkgs.just
 
-        flakeDirs=(
-          "$HOME/.nixos"
-          "$HOME/.config/nixos"
-          "/etc/nixos"
-        )
+        (pkgs.writeShellScriptBin "nx" ''
+          #!/usr/bin/env bash
+          set -euo pipefail
 
-        for dir in "''${flakeDirs[@]}"; do
-          if [[ -f "$dir/justfile" ]]; then
-            exec just -f "$dir/justfile" "$@"
+          if [[ -f "${relFlakeDir}/justfile" ]]; then
+            exec just -f "${relFlakeDir}/justfile" "$@"
           fi
-        done
 
-        printf 'Error: no justfile found in any of: %s\n' "''${flakeDirs[*]}" >&2
-        exit 1
-      '')
-    ];
-  };
+          printf 'Error: no justfile found in: "${relFlakeDir}"' >&2
+          exit 1
+        '')
+      ];
+    };
 }

@@ -28,8 +28,7 @@ info:
 [doc("Aggressive GC + optimise store")]
 [group("nix")]
 clean:
-    nh clean all
-    nix store optimise
+    nh clean all --optimise
 
 # interactive
 

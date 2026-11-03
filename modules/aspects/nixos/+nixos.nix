@@ -5,6 +5,7 @@
         # Core
         boot
         default-shell
+        clean
         env
         kernel
         locale
