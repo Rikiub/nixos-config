@@ -1,23 +1,17 @@
 { config, inputs, ... }:
 let
-  system = "x86_64-linux";
-  host.name = "anv16";
+  host = {
+    name = "anv16";
+    system = "x86_64-linux";
+  };
   inherit (config.flake) user;
 in
 {
   flake.nixosConfigurations.${host.name} = inputs.nixpkgs.lib.nixosSystem {
-    inherit system;
-    specialArgs = {
-      inherit inputs;
-      inherit host user;
-    };
+    inherit (host) system;
+    specialArgs = { inherit inputs host user; };
 
     modules = [
-      ./../../options.nix
-
-      # set system hostname
-      { networking.hostName = host.name; }
-
       # host nixos
       config.flake.modules.nixos.${host.name}
 
@@ -26,10 +20,7 @@ in
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          extraSpecialArgs = {
-            inherit inputs;
-            inherit host user;
-          };
+          extraSpecialArgs = { inherit inputs host user; };
           users.${user.name}.imports = [
             # host home-manager
             config.flake.modules.homeManager.${host.name}
