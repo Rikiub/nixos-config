@@ -1,12 +1,12 @@
 {
   flake.aspects.fresh-editor.homeManager = { ... }: {
+    # Set as default
     home.sessionVariables = {
       EDITOR = "fresh";
     };
 
     programs.fresh-editor = {
       enable = true;
-      defaultEditor = true;
       mutableSettings = true;
 
       settings = {
