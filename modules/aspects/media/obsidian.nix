@@ -5,11 +5,8 @@
       cli.enable = true;
     };
 
-    xdg.mimeApps = {
-      enable = true;
-      defaultApplications = {
-        "text/markdown" = "md.obsidian.Obsidian.desktop";
-      };
+    xdg.mimeApps.defaultApplications = {
+      "text/markdown" = "md.obsidian.Obsidian.desktop";
     };
   };
 }
