@@ -2,33 +2,45 @@
   flake.aspects.anv16.homeManager =
     { config, lib, ... }:
     let
-      root = "/media/Datos/Personal";
-      home = config.home.homeDirectory;
-      names = {
-        documents = "Documentos";
-        downloads = "Descargas";
-        music = "Musica";
-        pictures = "Imagenes";
-        videos = "Videos";
-        public = "Publico";
-        projects = "Proyectos";
+      # Config
+      directory = {
+        root = "/media/Datos/Raiz";
+        user = "/media/Datos/Raiz/Usuario";
       };
-      symlink = target: config.lib.file.mkOutOfStoreSymlink "${root}/${target}";
+
+      target = {
+        root = [ "Respaldos" ];
+        user = [ ];
+        xdg = {
+          documents = "Documentos";
+          download = "Descargas";
+          music = "Musica";
+          pictures = "Imagenes";
+          videos = "Videos";
+          projects = "Proyectos";
+          publicShare = "Publico";
+        };
+      };
+
+      # Helper
+      mkLinks =
+        dir: names:
+        lib.genAttrs names (name: {
+          source = config.lib.file.mkOutOfStoreSymlink "${dir}/${name}";
+        });
     in
     {
       xdg.userDirs = {
         enable = true;
         createDirectories = false;
         setSessionVariables = true;
+        desktop = null;
+      }
+      // lib.mapAttrs (_: name: "${config.home.homeDirectory}/${name}") target.xdg;
 
-        documents = "${home}/${names.documents}";
-        download = "${home}/${names.downloads}";
-        music = "${home}/${names.music}";
-        pictures = "${home}/${names.pictures}";
-        videos = "${home}/${names.videos}";
-        publicShare = "${home}/${names.public}";
-      };
-
-      home.file = lib.mapAttrs' (_name: value: lib.nameValuePair value { source = symlink value; }) names;
+      home.file =
+        mkLinks directory.user (builtins.attrValues target.xdg)
+        // mkLinks directory.user target.user
+        // mkLinks directory.root target.root;
     };
 }

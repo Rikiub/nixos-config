@@ -6,6 +6,8 @@
       ...
     }:
     let
+      rootDir = "/media/Datos/Raiz/Usuario";
+
       dev = {
         phone = "Android";
       };
@@ -34,22 +36,22 @@
             };
             "Obsidian" = {
               id = "obsidian";
-              path = "${config.xdg.userDirs.documents}/Obsidian";
+              path = "${rootDir}/Documentos/Obsidian";
               inherit devices ignorePerms;
             };
             "Musica" = {
               id = "musica";
-              path = "${config.xdg.userDirs.music}/Personal";
+              path = "${rootDir}/Musica/Personal";
               inherit devices ignorePerms;
             };
             "Imagenes" = {
               id = "imagenes";
-              path = "${config.xdg.userDirs.pictures}/Personal";
+              path = "${rootDir}/Imagenes/Personal";
               inherit devices ignorePerms;
             };
             "Videos" = {
               id = "videos";
-              path = "${config.xdg.userDirs.videos}/Personal";
+              path = "${rootDir}/Videos/Personal";
               inherit devices ignorePerms;
             };
           };
