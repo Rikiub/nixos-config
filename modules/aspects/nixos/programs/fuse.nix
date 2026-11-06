@@ -1,7 +1,7 @@
 {
 
   flake.aspects.fuse.nixos = { lib, pkgs, ... }: {
-    # Compability wrapper for fusermount3
+    # Compability wrapper for fuse2
     # Neccesary for mount in restic and others
     security.wrappers.fusermount = {
       setuid = true;
