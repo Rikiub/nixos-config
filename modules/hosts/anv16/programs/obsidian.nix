@@ -1,4 +1,5 @@
 {
+
   flake.aspects.anv16.homeManager = { config, ... }: {
     # Obsidian Settings
     programs.obsidian.vaults = {
@@ -13,7 +14,7 @@
         repository = "/media/Datos/Raiz/Respaldos/Restic/Obsidian";
         passwordFile = "${config.xdg.configHome}/restic/obsidian";
 
-        paths = [ "${config.xdg.userDirs.documents}/Obsidian" ];
+        paths = [ "/media/Datos/Raiz/Usuario/Documentos/Obsidian" ];
         initialize = true;
 
         pruneOpts = [

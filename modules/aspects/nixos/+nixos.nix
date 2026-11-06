@@ -14,6 +14,7 @@
         vm
 
         # Programs
+        fuse
         nix-ld
         nx
         ssh
