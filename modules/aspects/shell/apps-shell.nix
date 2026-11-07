@@ -1,10 +1,9 @@
 {
   flake.aspects.apps-shell.homeManager = { pkgs, ... }: {
     home.packages = with pkgs; [
-      wl-clipboard # Clipboard on Wayland
+      trash-cli # Trash Manager
       tre-command # Tree
       ouch # Zip Manager
-      trash-cli # Trash Manager
     ];
 
     programs = {

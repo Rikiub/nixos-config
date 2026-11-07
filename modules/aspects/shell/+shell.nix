@@ -4,6 +4,7 @@
       includes = with aspects; [
         apps-shell
         bat
+        clipboard-shell
         fresh-editor
         tldr
         yazi
