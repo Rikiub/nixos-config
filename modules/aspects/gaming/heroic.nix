@@ -1,9 +1,7 @@
 {
-  flake.aspects.heroic = {
-    homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        heroic
-      ];
-    };
+  flake.aspects.heroic.homeManager = { pkgs, ... }: {
+    home.packages = with pkgs; [
+      heroic
+    ];
   };
 }
