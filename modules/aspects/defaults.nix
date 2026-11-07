@@ -7,11 +7,11 @@
         system.stateVersion = "26.11";
       };
 
-      homeManager = { ... }: {
+      homeManager = { pkgs, ... }: {
         home.stateVersion = "26.11";
 
         # Avoid errors for existing dotfiles
-        home.backupFileExtension = "backup";
+        home.backupCommand = "${pkgs.trash-cli}/bin/trash";
       };
     };
   };
