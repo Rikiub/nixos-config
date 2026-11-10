@@ -1,4 +1,4 @@
-# This module is imported by default in all hosts.
+# This module must be imported in all hosts.
 
 {
   flake.aspects = { aspects, ... }: {

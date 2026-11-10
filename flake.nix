@@ -1,28 +1,25 @@
+# DO-NOT-EDIT. This file was auto-generated using github:denful/flake-file.
+# Use `nix run .#write-flake` to regenerate it.
 {
+  outputs = inputs: inputs.flake-parts.lib.mkFlake { inherit inputs; } (inputs.import-tree ./modules);
+
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    flake-aspects.url = "github:denful/flake-aspects";
+    flake-file.url = "github:denful/flake-file";
+    flake-parts = {
+      url = "github:hercules-ci/flake-parts";
+      inputs.nixpkgs-lib.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    import-tree.url = "github:denful/import-tree";
     nixos-hardware = {
       url = "github:NixOS/nixos-hardware";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    import-tree.url = "github:denful/import-tree";
-    flake-parts.url = "github:hercules-ci/flake-parts";
-    flake-aspects.url = "github:denful/flake-aspects";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-lib.follows = "nixpkgs";
   };
-
-  outputs =
-    inputs@{ flake-parts, ... }:
-    flake-parts.lib.mkFlake { inherit inputs; } {
-      debug = true;
-      imports = with inputs; [
-        flake-aspects.flakeModule
-        flake-parts.flakeModules.modules
-        (import-tree ./modules)
-      ];
-    };
 }
