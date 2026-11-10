@@ -1,5 +1,5 @@
 {
-  flake.aspects.niri-session.homeManager = { pkgs, ... }: {
+  flake.aspects.noctalia.homeManager = { pkgs, ... }: {
     home.pointerCursor = {
       enable = true;
 
