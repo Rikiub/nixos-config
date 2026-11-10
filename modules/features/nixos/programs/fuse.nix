@@ -1,5 +1,4 @@
 {
-
   flake.aspects.fuse.nixos = { lib, pkgs, ... }: {
     # Compability wrapper for fuse2
     # Neccesary for mount in restic and others
