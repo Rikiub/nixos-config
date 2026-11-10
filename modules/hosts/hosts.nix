@@ -1,7 +1,7 @@
 { inputs, config, ... }:
 let
   hosts = {
-    anv16.system = "x86_64-linux";
+    rosetta.system = "x86_64-linux";
   };
 
   mkHost =

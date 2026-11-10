@@ -8,10 +8,10 @@
         },
         "options": {
           "nixos": {
-            "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.anv16.options",
+            "expr": "(builtins.getFlake (toString ./.)).nixosConfigurations.rosetta.options",
           },
           "home-manager": {
-            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.anv16.options.home-manager.users.type.getSubOptions []",
+            "expr": "(builtins.getFlake (builtins.toString ./.)).nixosConfigurations.rosetta.options.home-manager.users.type.getSubOptions []",
           },
           "flake-parts": {
             "expr": "(builtins.getFlake (toString ./.)).debug.options",

@@ -1,6 +1,6 @@
 {
 
-  flake.aspects.anv16.homeManager = { config, ... }: {
+  flake.aspects.rosetta.homeManager = { config, ... }: {
     # Obsidian Settings
     programs.obsidian.vaults = {
       "Obsidian".target = "Documentos/Obsidian";

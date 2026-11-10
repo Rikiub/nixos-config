@@ -1,6 +1,6 @@
 {
   flake.aspects = { aspects, ... }: {
-    anv16 = {
+    rosetta = {
       includes = with aspects; [
         # System
         nixos

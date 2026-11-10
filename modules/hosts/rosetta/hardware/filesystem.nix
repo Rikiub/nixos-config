@@ -1,5 +1,5 @@
 {
-  flake.aspects.anv16.nixos =
+  flake.aspects.rosetta.nixos =
     { ... }:
     let
       options = [
