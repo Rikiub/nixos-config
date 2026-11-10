@@ -16,6 +16,7 @@ let
       specialArgs = { inherit inputs host user; };
 
       modules = [
+        config.flake.modules.nixos.defaults
         config.flake.modules.nixos.${name}
         inputs.home-manager.nixosModules.home-manager
         {
@@ -24,6 +25,7 @@ let
             useUserPackages = true;
             extraSpecialArgs = { inherit inputs host user; };
             users.${user.name}.imports = [
+              config.flake.modules.homeManager.defaults
               config.flake.modules.homeManager.${name}
             ];
           };

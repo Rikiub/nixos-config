@@ -1,3 +1,5 @@
+# This module is imported by default in all hosts.
+
 {
   flake.aspects = { aspects, ... }: {
     defaults = {
