@@ -5,7 +5,7 @@
         # System
         nixos
 
-        # Groups
+        # User
         desktop
         shell
         dev
