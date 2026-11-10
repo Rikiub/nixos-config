@@ -1,1 +1,1 @@
-Personal host config for my Acer Laptop.
+Personal config for my Acer Laptop.
