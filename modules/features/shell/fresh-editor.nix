@@ -1,26 +1,38 @@
 {
-  flake.aspects.fresh-editor.homeManager = { ... }: {
-    # Set as default
-    home.sessionVariables = {
-      EDITOR = "fresh";
+  flake.aspects.fresh-editor = {
+    nixos = { ... }: {
+      nixpkgs.overlays = [
+        (final: prev: {
+          fresh-editor = prev.fresh-editor.overrideAttrs (oldAttrs: {
+            buildInputs = (oldAttrs.buildInputs or [ ]) ++ [ final.oniguruma ];
+          });
+        })
+      ];
     };
 
-    programs.fresh-editor = {
-      enable = true;
-      mutableSettings = true;
+    homeManager = { ... }: {
+      # Set as default
+      home.sessionVariables = {
+        EDITOR = "fresh";
+      };
 
-      settings = {
-        theme = "dracula";
+      programs.fresh-editor = {
+        enable = true;
+        mutableSettings = true;
 
-        lsp = {
-          python = [
-            {
-              enabled = true;
-              auto_start = true;
-              command = "ty";
-              args = [ "server" ];
-            }
-          ];
+        settings = {
+          theme = "dracula";
+
+          lsp = {
+            python = [
+              {
+                enabled = true;
+                auto_start = true;
+                command = "ty";
+                args = [ "server" ];
+              }
+            ];
+          };
         };
       };
     };
