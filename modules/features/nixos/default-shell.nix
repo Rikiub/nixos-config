@@ -1,5 +1,8 @@
 {
   flake.aspects.default-shell.nixos = { pkgs, ... }: {
+    # Add ~/.local/bin to PATH.
+    environment.localBinInPath = true;
+
     # Required for pkexec
     environment.shells = [ pkgs.nushell ];
 

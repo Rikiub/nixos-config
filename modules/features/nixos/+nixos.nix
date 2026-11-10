@@ -6,7 +6,6 @@
         boot
         default-shell
         clean
-        env
         kernel
         locale
         nix
