@@ -19,6 +19,9 @@
           common-gpu-nvidia
         ];
 
+        # Fix suspend
+        boot.kernelParams = [ "mem_sleep_default=deep" ];
+
         # Nvidia PRIME
         services.xserver.videoDrivers = [
           "modesetting" # Intel
