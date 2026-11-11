@@ -7,7 +7,6 @@
         network
         nvidia
         sound
-        rgb
       ];
 
       nixos = { inputs, ... }: {
