@@ -1,0 +1,5 @@
+input {
+    mouse {
+        accel-speed 0.1
+    }
+}
