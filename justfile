@@ -6,13 +6,13 @@ default:
 [doc("Build and switch to a specified NixOS flake configuration")]
 [group("nix")]
 switch host="":
-    @just update-inputs
+    @just sync
     nh os switch --quiet .#{{ host }}
 
 [doc("Build and activate a specified NixOS flake configuration specialisation")]
 [group("nix")]
 test host="":
-    @just update-inputs
+    @just sync
     nh os test --quiet .#{{ host }}
 
 [doc("Rollback to previous generation")]
@@ -23,13 +23,12 @@ rollback:
 [doc("Update all the flake inputs and rebuild system")]
 [group("nix")]
 update:
-    @just update-inputs
+    @just sync
     nh os switch --quiet --update .
 
-[doc("Update flake inputs")]
+[doc("Sync flake inputs")]
 [group("nix")]
-update-inputs:
-    @git add .
+sync:
     nix run .#write-flake
 
 [doc("List available generations from profile path")]
