@@ -2,7 +2,7 @@
   flake.aspects = { aspects, ... }: {
     desktop = {
       includes = with aspects; [
-        niri-session
+        niri-desktop
         gnome-keyring
       ];
 

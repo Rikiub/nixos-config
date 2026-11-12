@@ -1,7 +1,10 @@
 {
   flake.aspects = { aspects, ... }: {
-    niri-session = {
-      includes = with aspects; [ noctalia ];
+    niri-desktop = {
+      includes = with aspects; [
+        noctalia-shell
+        noctalia-greeter
+      ];
 
       nixos = { ... }: {
         programs.niri.enable = true;
