@@ -1,9 +1,7 @@
 {
   flake.aspects.nvidia = {
     homeManager = { pkgs, ... }: {
-      home.packages = with pkgs; [
-        nvtopPackages.nvidia
-      ];
+      home.packages = with pkgs; [ nvtopPackages.nvidia ];
     };
 
     nixos = { ... }: {
