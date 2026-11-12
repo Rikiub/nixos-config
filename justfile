@@ -29,6 +29,7 @@ update:
 [doc("Sync flake inputs")]
 [group("nix")]
 sync:
+    @git add .
     nix run .#write-flake
 
 [doc("List available generations from profile path")]
